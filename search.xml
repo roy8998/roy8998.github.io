@@ -18,11 +18,19 @@
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
       <categories>
-        <category>gallery</category>
+        <category>articles</category>
       </categories>
       <tags>
         <tag>test</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>testimage</title>
+    <url>/2024/08/29/testimage/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>gallery</category>
+      </categories>
   </entry>
   <entry>
     <title>&#39;tags&#39;</title>
