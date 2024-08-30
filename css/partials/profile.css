@@ -22,7 +22,6 @@
 .profile .profile-image {
   height: 50%;
   left: 50%;
-  transform: translate(20%, 0%);
 }
 @media (max-width: 480px) {
   .profile {
