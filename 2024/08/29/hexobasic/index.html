@@ -143,11 +143,15 @@
     </div>
 </div>
     <div class="post-content">
-    <p><a target="_blank" rel="noopener" href="https://hackmd.io/@Heidi-Liu/note-hexo-github">參考文章</a></p>
+    <blockquote>
+<p><a target="_blank" rel="noopener" href="https://hackmd.io/@Heidi-Liu/note-hexo-github">參考文章</a></p>
+</blockquote>
 <p>看到Hexo一陣子了，我一直都想自己架個站，但都懶得動，這次實習完終於喚醒我長年睡著的Coding魂（其實也是終於有機會跟上新時代的工具了），剛好也有時間就來搞搞看，結果發現其實真的滿簡單的，也滿好用。</p>
 <h1 id="What-is-Hexo"><a href="#What-is-Hexo" class="headerlink" title="What is Hexo?"></a>What is Hexo?</h1><hr>
 <p>開玩笑的，我最不會解釋這種東西了，基本上就是個寫網誌的框架啦！</p>
+<blockquote>
 <p><a target="_blank" rel="noopener" href="https://hexo.io/zh-tw/">官網連結</a></p>
+</blockquote>
 <p>其實官網就有完整（？）教學了，架起來真的很簡單，我第一次用遇到的問題比較都是不熟悉現代工具（node.js, git）造成的，每個人應該都有不太會打Terminal的時代吧…還是單純我笨QQ</p>
 <h1 id="環境建置"><a href="#環境建置" class="headerlink" title="環境建置"></a>環境建置</h1><hr>
 <p>反正官網其實開頭就告訴你需要什麼指令了</p>
@@ -155,7 +159,9 @@
 
 <p>好吧，既然我的初衷是要手把手教學，這裡就講仔細點，順便讓我練一下Markdown。</p>
 <p>首先最基礎的是，看到 <code>npm</code> 的時候就要有意識了，基本上這個時代寫程式最容易看到卻也最容易讓小白卡住的兩個詞就是 <code>npm</code> 或 <code>pip</code> 。簡單來說他們有點像兩種下載器， <code>npm</code> 是node.js預設的，<code>pip</code> 則是Python預設的，你的電腦要先裝好對應的環境，才可以在Terminal上使用這些指令。</p>
+<blockquote>
 <p><a target="_blank" rel="noopener" href="https://nodejs.org/zh-tw">node.js官網</a></p>
+</blockquote>
 <p>因此這裡第一件要做的事就是把node裝好，裝好之後大概就會產生下一個疑問了：</p>
 <h3 id="我要在哪裏打剛剛的指令…"><a href="#我要在哪裏打剛剛的指令…" class="headerlink" title="我要在哪裏打剛剛的指令…"></a>我要在哪裏打剛剛的指令…</h3><p>剛剛有提過Terminal了，我一直覺得這東西的存在就是為了阻止程式小白開始寫程式，因為真的太基本了所以基本上沒什麼人會教…至於我為什麼一直覺得這是新世代的方法，主要是因為以前就是學一些上古時代的東西，包括但不限於C++, PHP, JAVA等語言，又因為都在學校學，真的是比較少碰現在這些框架，甚至是比較大的框架大部分不一定需要用這種Package的方式安裝（其實我直覺也舉不出例子，但還真就剛好沒人教過我怎麼用npm），於是後來我就一直對這個很困惑（說白了就是懶的接觸新東西啦）。</p>
 <p>最近又回來比較密集的碰這些東西才重新理解，那就來詳細說一下我理解的內容吧，簡單來說Terminal其實就是電腦上可以輸入指令的地方，以Windows來說比較常用的就是<strong>cmd（Command Line, 命令提示字元）</strong>，在開始輸入cmd就會直接跳出來；另外還有<strong>PowerShell</strong>，基本上把他當強化版的cmd就對了，功能比cmd完整，但整體使用上差不多。</p>
@@ -244,8 +250,12 @@
 <p>這個剛剛有講過了，在本地端啟動Hexo server，就可以在自己電腦上預覽結果，要關掉的話回到Terminal點一下之後按 <code>Ctrl+C</code> 就可以了。</p>
 <h1 id="發佈到Github-Page"><a href="#發佈到Github-Page" class="headerlink" title="發佈到Github Page"></a>發佈到Github Page</h1><hr>
 <p>這邊…真的滿簡單的，所以我就不多寫了，可以參考其他人的文章，以下附上兩篇：</p>
+<blockquote>
 <p><a target="_blank" rel="noopener" href="https://hackmd.io/@Heidi-Liu/note-hexo-github">Github Page</a></p>
-<p> <a target="_blank" rel="noopener" href="https://medium.com/i-caught-a-code/hexo-%E7%84%A1%E7%97%9B%E5%85%A5%E5%9D%91%E5%9B%89-1a119a6805e5">Gitlab + Netlify</a></p>
+</blockquote>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://medium.com/i-caught-a-code/hexo-%E7%84%A1%E7%97%9B%E5%85%A5%E5%9D%91%E5%9B%89-1a119a6805e5">Gitlab + Netlify</a></p>
+</blockquote>
 <p>設定好之後就是在每次修改完依序執行：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo cl</span><br><span class="line">$ hexo g</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
 <p>這三行指令就是前面 <code>clean</code> 跟 <code>generate</code> 的縮寫，再加上一個 <code>deploy</code> 。</p>
