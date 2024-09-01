@@ -191,8 +191,8 @@
 <blockquote>
 <p>延伸閱讀：<a target="_blank" rel="noopener" href="https://scitechvista.nat.gov.tw/Article/c000003/detail?ID=f059f6ab-a1be-4684-a1e8-b2d3ff72eed3">不只有0跟1的位元</a></p>
 </blockquote>
-<hr>
-<h1 id="關於二進制（Binary）"><a href="#關於二進制（Binary）" class="headerlink" title="關於二進制（Binary）"></a>關於二進制（Binary）</h1><p>那看到這裡，應該會想理解一下數位訊號是怎麼變成我們看到的東西的吧，那就要來介紹<strong>二進制</strong>啦。我猜大多數人應該還是或多或少聽過看過二進制啦，不過我還是以我的方式從頭開始講一次，會的還是可以看一下，<strong>我有準備小遊戲</strong>！</p>
+<h1 id="二進制-Binary"><a href="#二進制-Binary" class="headerlink" title="二進制 Binary"></a>二進制 Binary</h1><hr>
+<p>那看到這裡，應該會想理解一下數位訊號是怎麼變成我們看到的東西的吧，那就要來介紹<strong>二進制</strong>啦。我猜大多數人應該還是或多或少聽過看過二進制啦，不過我還是以我的方式從頭開始講一次，會的還是可以看一下，<strong>我有準備小遊戲</strong>！</p>
 <p>先從平常的十進位制開始，平常我們看到一個數字大概是這個情況：</p>
 <blockquote>
 <p>2405 &#x3D; 2000 + 400 + 0 + 5<br>&ensp;&ensp;&ensp;&ensp;&ensp;&nbsp;&#x3D; 2 × 1000 + 4 × 100 + 0 × 10 + 5 × 1<br>&ensp;&ensp;&ensp;&ensp;&ensp;&nbsp;&#x3D; 2 × 10<sup>3</sup> + 4 × 10<sup>2</sup> + 0 × 10<sup>1</sup>+ 5 × 10<sup>0</sup></p>
@@ -439,7 +439,8 @@
 <blockquote>
 <p>n位元可以表示數值範圍為 2<sup>n</sup> 個數，其最大表示數值為 2<sup>n</sup> - 1 。</p>
 </blockquote>
-<h1 id="十六進制-Hexadecimal"><a href="#十六進制-Hexadecimal" class="headerlink" title="十六進制　Hexadecimal"></a>十六進制　Hexadecimal</h1><p>二進制有個顯而易見的問題，就是因為都是 <code>1</code> 跟 <code>0</code> ，所以動不動就要會是一長串沒什麼邏輯的數字，雖然我們不太會需要記憶這些數字，但如果是要表示一些編碼給電腦看，就會很麻煩又難懂。</p>
+<h1 id="十六進制-Hexadecimal"><a href="#十六進制-Hexadecimal" class="headerlink" title="十六進制　Hexadecimal"></a>十六進制　Hexadecimal</h1><hr>
+<p>二進制有個顯而易見的問題，就是因為都是 <code>1</code> 跟 <code>0</code> ，所以動不動就要會是一長串沒什麼邏輯的數字，雖然我們不太會需要記憶這些數字，但如果是要表示一些編碼給電腦看，就會很麻煩又難懂。</p>
 <p>因此我們會使用十六進制，也就是每數到16就會進位一次，那因為數字只有 <code>0 ~ 9</code> 嘛，所以會再加上 <code>A ~ F</code> ，才能用一個字元完整表示 0 ~ 15 。</p>
 <p>至於為什麼是16，而不是12、15之類的呢？前面有提到，我們希望可以增加二進制數值的可讀性。而因為16 &#x3D; 2<sup>4</sup>，因此每4位二進制數字都可以轉換成一個16進制的數字，例如：</p>
 <blockquote>
@@ -447,10 +448,10 @@
 </blockquote>
 <p>上面是數學上如何計算，不過我們平常不用想這麼多，直接把二進位數分成每4位一組，直接轉換成十六進位數就可以了，例如：</p>
 <blockquote>
-<p><code>100100101011011</code>可以分成<br>&ensp;<code>100</code> <code>1001</code> <code>0101</code> <code>1011</code> （要記得整數是從最小位數開始取每四位一組）<br><code>0100</code> <code>1001</code> <code>0101</code> <code>1011</code> （不足四位的要在最前面補 <code>0</code>）<br><code>(4</code> &ensp;&ensp;&ensp;<code>9</code> &ensp;&ensp;&ensp;<code>5</code> &ensp;&ensp;&thinsp;<code>11)</code><sub>10</sub>（可以先轉成十進制）</p>
+<p>&ensp;&ensp;&thinsp;&thinsp;&ensp;&thinsp;<code>100100101011011</code><br>&ensp;可以分成<br>&ensp;&ensp;&thinsp;<code>100</code> <code>1001</code> <code>0101</code> <code>1011</code><br>（要記得整數的話是從最小位數開始取每四位一組）<br>&ensp;&thinsp;<code>0100</code> <code>1001</code> <code>0101</code> <code>1011</code><br>（不足四位的要在最前面補 <code>0</code>）<br>&ensp;&thinsp;<code>(4</code> &ensp;&ensp;&ensp;&thinsp;<code>9</code> &ensp;&ensp;&ensp;&thinsp;<code>5</code> &ensp;&ensp;&ensp;&thinsp;<code>11)</code><sub>10</sub><br>（可以先轉成十進制）</p>
 <p>——–&gt; <code>495B</code><sub>16</sub></p>
 </blockquote>
-<p>一樣可以直接玩玩看底下的小遊戲，會比較有感！</p>
+<p>以上是整數的轉換方式，那一樣可以直接玩玩看底下的小遊戲，會比較有感！</p>
 <h3 id="十六進制小遊戲"><a href="#十六進制小遊戲" class="headerlink" title="十六進制小遊戲"></a>十六進制小遊戲</h3><div class="outer-section">
     <div class="flexcon">
         <div class="square">
