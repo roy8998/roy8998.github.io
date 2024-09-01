@@ -443,7 +443,7 @@
 <p>因此我們會使用十六進制，也就是每數到16就會進位一次，那因為數字只有 <code>0 ~ 9</code> 嘛，所以會再加上 <code>A ~ F</code> ，才能用一個字元完整表示 0 ~ 15 。</p>
 <p>至於為什麼是16，而不是12、15之類的呢？前面有提到，我們希望可以增加二進制數值的可讀性。而因為16 &#x3D; 2<sup>4</sup>，因此每4位二進制數字都可以轉換成一個16進制的數字，例如：</p>
 <blockquote>
-<p>11010010<sub>2</sub> &#x3D; 2<sup>7</sup> + 2<sup>6</sup> + 2<sup>4</sup> + 2<sup>1</sup><br>&ensp;&ensp;&ensp;&ensp;&thinsp;&ensp;&ensp;&ensp;&ensp;&ensp; &#x3D; 2<sup>4</sup> × (2<sup>3</sup> + 2<sup>2</sup> + 2<sup>0</sup>) + 2<sup>1</sup><br>&ensp;&ensp;&ensp;&ensp;&thinsp;&ensp;&ensp;&ensp;&ensp;&ensp; &#x3D; 16<sup>1</sup> × 13 + 16<sup>0</sup> * 2<br>&ensp;&ensp;&ensp;&ensp;&thinsp;&ensp;&ensp;&ensp;&ensp;&ensp; &#x3D; 210<sub>10</sub><br>&ensp;&ensp;&ensp;&ensp;&thinsp;&ensp;&ensp;&ensp;&ensp;&ensp; &#x3D; D2<sub>16</sub></p>
+<p>11010010<sub>2</sub> &#x3D; 2<sup>7</sup> + 2<sup>6</sup> + 2<sup>4</sup> + 2<sup>1</sup><br>&ensp;&ensp;&ensp;&ensp;&thinsp;&ensp;&ensp;&ensp;&ensp;&ensp; &#x3D; 2<sup>4</sup> × (2<sup>3</sup> + 2<sup>2</sup> + 2<sup>0</sup>) + 2<sup>1</sup><br>&ensp;&ensp;&ensp;&ensp;&thinsp;&ensp;&ensp;&ensp;&ensp;&ensp; &#x3D; 16<sup>1</sup> × 13 + 16<sup>0</sup> × 2<br>&ensp;&ensp;&ensp;&ensp;&thinsp;&ensp;&ensp;&ensp;&ensp;&ensp; &#x3D; 210<sub>10</sub><br>&ensp;&ensp;&ensp;&ensp;&thinsp;&ensp;&ensp;&ensp;&ensp;&ensp; &#x3D; D2<sub>16</sub></p>
 </blockquote>
 <p>上面是數學上如何計算，不過我們平常不用想這麼多，直接把二進位數分成每4位一組，直接轉換成十六進位數就可以了，例如：</p>
 <blockquote>
