@@ -68,3 +68,124 @@ dl dt::after {
 dl dd {
   margin: 0;
 }
+.outer-section {
+  display: block;
+  width: 100%;
+  padding-top: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  height: auto;
+  background-color: #a5cfcd;
+  border-radius: 3%;
+}
+.outer-section p {
+  text-align: center;
+}
+.flexcon {
+  display: flex;
+  justify-content: center;
+  border-radius: 3%;
+  background-color: #ddeff6;
+  position: relative;
+}
+.flexeven {
+  display: flex;
+  justify-content: space-evenly;
+}
+.inlineflex {
+  display: inline-flex;
+  justify-content: center;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+.inlineflex p {
+  font-size: 36px;
+  display: block;
+  width: 100%;
+}
+.square {
+  display: inline-block;
+  margin-top: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 10%;
+  height: auto;
+}
+.square-inner {
+  display: block;
+}
+.square-inner button {
+  border-radius: 15%;
+  width: 100%;
+  padding-top: 100%;
+  border-color: #000;
+  border-width: 1.5px;
+  outline-width: 3px;
+  outline-style: solid;
+}
+.square-inner button:hover {
+  border-radius: 15%;
+  width: 100%;
+  padding-top: 100%;
+  border-color: #fff;
+  border-width: 1.5px;
+  outline-width: 3px;
+  outline-style: solid;
+}
+.buttonOn {
+  background-color: #ff5252;
+  outline-color: #ff5252;
+}
+.buttonOff {
+  background-color: #b4b4b4;
+  outline-color: #b4b4b4;
+}
+.summary {
+  display: flex;
+  position: relative;
+  width: auto;
+  justify-content: center;
+}
+.summary p {
+  font-size: 36px;
+  display: block;
+  width: 100%;
+}
+.con16 {
+  margin-top: 5px;
+  background-color: #ede6d6;
+  display: block;
+  border-radius: 2.5%;
+}
+.nondis {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  height: 50px;
+  width: 50px;
+  z-index: 1;
+}
+.nondis p {
+  position: absolute;
+  right: 3px;
+  bottom: -10px;
+  text-align: right;
+  font-size: 12px;
+}
+.nondis1 {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  height: 50px;
+  width: 50px;
+  z-index: 1;
+}
+.nondis1 p {
+  position: absolute;
+  right: 3px;
+  bottom: 168px;
+  text-align: right;
+  font-size: 12px;
+}

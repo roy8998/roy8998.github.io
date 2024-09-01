@@ -112,14 +112,6 @@
       </categories>
   </entry>
   <entry>
-    <title>文組生的資訊素養：第一課　關於電腦的那些事</title>
-    <url>/2024/08/31/l1-1/</url>
-    <content><![CDATA[]]></content>
-      <tags>
-        <tag>初學者系列</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo基本操作分享</title>
     <url>/2024/08/29/hexobasic/</url>
     <content><![CDATA[<blockquote>
@@ -256,6 +248,558 @@
       <tags>
         <tag>Web</tag>
         <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>文組生的資訊素養：第一課　數位的世界</title>
+    <url>/2024/08/31/l1-1/</url>
+    <content><![CDATA[<p>最近有一本書滿有名的，劉潤的《底層邏輯》，雖然我還沒讀啦，但大致上應該是在講每件事都有一個最底層的邏輯，理解之後才能真正學會該怎麼做。他那本主要是在講商業跟人際方面，我就在想，好像其實沒有人在整理資訊的底層邏輯欸，主要是玩資訊的人都很宅嗎，大家都會有自己的辦法去找到東西來學，而且鑽研的很深。但是隔行如隔山嘛，前端的不懂後端在想什麼，硬體的不懂軟體在想什麼。最根本來說，大部分的文組就沒搞懂過資訊圈到底都在玩什麼，所以我就想來分享我知道的東西。剛好高中在社團教過，算是有點教人的基礎，所以應該還行吧，希望我能寫到大家都看懂。</p>
+<p>不過我畢竟也不是專業的，專業的應該也不會想講這麼雜就是了，反正很多東西我沒辦法真的講到很細，主要也就是讓大家有基本的理解，如果真的藉由我的文章產生興趣之後再深入研究是最好的，也算達成了我的目的。</p>
+<h1 id="數位訊號？"><a href="#數位訊號？" class="headerlink" title="數位訊號？"></a>數位訊號？</h1><hr>
+<p>那就開始吧，第一課就先來聊聊電腦最最最基礎的概念之一，<strong>數位訊號</strong>，而跟數位訊號相對的是類比訊號。簡單來說，我們在日常生活中可以直接用感官理解的基本上都是廣義的類比訊號，最重要的例子就是聲音跟光，其他還有溫度、距離、氣味、頻率等等，基本上只要有連續值就是類比訊號。</p>
+<p>好像需要稍微註釋一下訊號：</p>
+<blockquote><p>在通訊系統、訊號處理或者電子工程等技術領域中，訊號是「傳遞有關一些現象的行為或屬性的資訊的函數。」在現實世界中，任何隨時間或者空間變化的量（如影像）都是潛在的訊號，它們可能會提供一個物理系統的狀態資訊，或在不同觀察者之間傳達消息等。</p>
+<footer><strong>Wikipedia</strong><cite><a href="https://zh.wikipedia.org/wiki/%E4%BF%A1%E5%8F%B7_(%E4%BF%A1%E6%81%AF%E8%AE%BA)">訊號（資訊理論）</a></cite></footer></blockquote>
+<p>所以用前面這些定義大致總結，類比訊號是連續值，代表有不同強度之分，可以直接用感官理解（摸得到看得到聽得到聞得到嘗得到）的這些東西基本上可以全部統稱類比訊號。傳統上真的會使用類比訊號傳輸的東西像是傳統的電話、收音機、類比電視這些東西，因為最終都是要呈現給人看、聽的，所以用類比訊號傳輸很合理。</p>
+<p>但是看到這裡應該會產生一個疑問，那為什麼不就一直用類比訊號傳輸就好呢？</p>
+<p>其實答案也很簡單，剛有提到類比訊號最主要就是在表示強度跟一些特徵，那其實這樣的訊號在傳輸過程中就容易受到干擾，而且受干擾的類比訊號就會失真，也就是讓其中的某些特徵變得不明顯。所以用類比電視或收音機的時候才會常常有雜訊，主要就是因為訊號被干擾了。</p>
+<p>那講回到數位訊號，數位訊號的所有特色基本上就跟類比訊號相反啦，人類無法直接理解、不連續、強度只有高跟低兩種。所以數位訊號就是專門用來給電腦理解的，因為它便於傳輸，所以我們可以將任何形式的資料、訊號轉換成數位的形式來傳輸，再利用電腦、手機等設備把接收到的數位訊號轉換成我們看得懂的形式，也就是類比訊號，這樣聽起來很方便吧！</p>
+<h1 id="數位訊號！"><a href="#數位訊號！" class="headerlink" title="數位訊號！"></a>數位訊號！</h1><hr>
+<p>了解它們之間的差異之後，我們把焦點拉回到數位訊號上吧。為什麼說數位訊號我們無法直接理解呢？簡單來說它可能長這樣…</p>
+<blockquote>
+<p><code>110100101110101001010010111101010010111</code></p>
+</blockquote>
+<p>好吧這單純是我亂敲的一段數字XD，但數位訊號確實是長這個樣子，因為是給電腦看的，所以講白了就是電啦。可以簡單理解成有電跟沒電，雖然應該並不是這麼單純，而是分成高電位（<code>1</code>）跟低電位（<code>0</code>），但多高多低其實好像不一定有一個明確的定義，所以就簡單理解成有電沒電也ok。</p>
+<p>所以說電腦裡運算的訊號，其實大致上一連串高低電位的組合，經由裡面的邏輯電路進行運算之後，再處理成訊號傳輸到螢幕上，最後才變成我們看到的數字或畫面（聽起來省略了很多吧，希望未來漫漫補上…）。</p>
+<p>而以高低電位來表示數位訊號的方式，在電腦裡不僅方便計算，也利於儲存跟傳輸，還有更多更多基於硬體我講不太出來的理由，反正數位訊號很方便。那這樣每個 <code>1</code> 或每個 <code>0</code> 在電腦中就是一個<strong>位元（bit）</strong>，每個位元也只會有這兩種狀態，<code>1</code> 或 <code>0</code>，有或沒有，是或不是，你怎麼理解它其實都行。</p>
+<table>
+<thead>
+<tr>
+<th align="center">類比訊號</th>
+<th align="center">數位訊號</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">例如聲音</td>
+<td align="center"><code>10111010</code></td>
+</tr>
+<tr>
+<td align="center">音量（震幅）<br>音色（波形）<br>音高（頻率）</td>
+<td align="center">只有 <code>1</code> 跟 <code>0</code> 兩種狀態</td>
+</tr>
+<tr>
+<td align="center">連續<br>例如音量<br>可以有35.8dB、107.6dB、45dB等值</td>
+<td align="center">不連續<br>只有 <code>1</code> 跟 <code>0</code> 兩種狀態<br>不會有 <code>0.5</code> 、<code>0.74</code>等狀態</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>延伸閱讀：<a href="https://scitechvista.nat.gov.tw/Article/c000003/detail?ID=f059f6ab-a1be-4684-a1e8-b2d3ff72eed3">不只有0跟1的位元</a></p>
+</blockquote>
+<hr>
+<h1 id="關於二進制（Binary）"><a href="#關於二進制（Binary）" class="headerlink" title="關於二進制（Binary）"></a>關於二進制（Binary）</h1><p>那看到這裡，應該會想理解一下數位訊號是怎麼變成我們看到的東西的吧，那就要來介紹<strong>二進制</strong>啦。我猜大多數人應該還是或多或少聽過看過二進制啦，不過我還是以我的方式從頭開始講一次，會的還是可以看一下，<strong>我有準備小遊戲</strong>！</p>
+<p>先從平常的十進位制開始，平常我們看到一個數字大概是這個情況：</p>
+<blockquote>
+<p>2405 &#x3D; 2000 + 400 + 0 + 5<br>&ensp;&ensp;&ensp;&ensp;&ensp;&nbsp;&#x3D; 2 × 1000 + 4 × 100 + 0 × 10 + 5 × 1<br>&ensp;&ensp;&ensp;&ensp;&ensp;&nbsp;&#x3D; 2 × 10<sup>3</sup> + 4 × 10<sup>2</sup> + 0 × 10<sup>1</sup>+ 5 × 10<sup>0</sup></p>
+</blockquote>
+<p>也就是說，在十進位制當中，第n位數代表的意涵就是那個數字乘上10的n-1次方所代表的數值，並且整個數就是把所有位數代表的數值全部加起來的總合。</p>
+<p>也就是說，十進位制是數到十就會進位一次的方式，那二進制或二進位制就是數到2就會進位一次，因此只會看到 <code>1</code> 跟 <code>0</code> 兩種數字。</p>
+<p>那我們就可以用同樣的方式來思考二進位制，例如：</p>
+<blockquote>
+<p>1011<sub>2</sub> &#x3D; 1 × 2<sup>3</sup> + 0 × 2<sup>2</sup> + 1 × 2<sup>1</sup> + 1 × 2<sup>0</sup><br>&ensp;&ensp;&ensp;&ensp;&thinsp;&ensp;&#x3D; 1 × 8 + 0 × 4 + 1 × 2 + 1 × 1<br>&ensp;&ensp;&ensp;&ensp;&thinsp;&ensp;&#x3D; 11<sub>10</sub></p>
+</blockquote>
+<p>首先應該有發現<sub>2</sub>跟<sub>10</sub>這兩個下標，通常有不同進位制的數同時出現，我們就會用下標的方式來明確指出它們分別是用哪個進位制表示。</p>
+<p>至於十進制轉二進制則可以用短除法將原本的數不斷除以2，再把餘數反向取出，例如下圖：</p>
+<div class="flexeven">
+    <img src="https://s3.notfalse.net/wp-content/uploads/2017/02/24034959/dec-to-binary-ex2.png">
+</div>
+
+<blockquote><footer><strong>圖片來源：</strong><cite><a href="https://www.google.com/url?sa=i&url=https%3A%2F%2Fnotfalse.net%2F17%2Fpositional-numeral-systems-conversion&psig=AOvVaw19W5Hc8Pags6eSqIucCbh_&ust=1725269735453000&source=images&cd=vfe&opi=89978449&ved=0CBcQjhxqFwoTCLCT3-C4oYgDFQAAAAAdAAAAABAE">NotFalse 技術客</a></cite></footer></blockquote>
+
+<p>所以，二進制的轉換其實就是為了把電腦使用的 <code>1</code> 跟 <code>0</code> 轉換成我們看的懂的數字，以及把我們看得懂的數字轉換成電腦看得懂的形式。</p>
+<p>那會這個有什麼用嗎？其實…好像還好，但我們不論在寫程式或是使用軟體時，其實很常會需要用到 <code>1</code> 跟 <code>0</code> 的邏輯，所以還是必須認識他們一下。</p>
+<p>底下有個二進制的小遊戲，可以點點看，幫助你更了解二進制！</p>
+<h3 id="二進制小遊戲"><a href="#二進制小遊戲" class="headerlink" title="二進制小遊戲"></a>二進制小遊戲</h3><div class="outer-section">
+    <div class="flexcon">
+        <div class="square">
+            <div class="square-inner">
+                <button onclick="b1 += 1; disb1();" class="buttonOff" id="bu1">
+                </button>
+                <p id='b1'></p>
+                <p>×</p>
+                <p>2<sup>7</sup></p>
+                <p>∥</p>
+                <p id="s1"></p>
+                <script>
+                    var b1 = 0;
+                    function disb1(){
+                        document.getElementById('b1').innerHTML = b1%2;
+                        document.getElementById('s1').innerHTML = b1%2*128;
+                        if (b1%2 == 0){
+                            document.getElementById('bu1').className = "buttonOff";
+                        }
+                        else{
+                            document.getElementById('bu1').className = "buttonOn";
+                        } summary();
+                    }
+                    disb1();
+                </script>
+            </div>
+        </div>
+        <div class="square">
+            <div class="square-inner">
+                <button onclick="b2 += 1; disb2();" class="buttonOff" id="bu2">
+                </button>
+                <p id='b2'></p>
+                <p>×</p>
+                <p>2<sup>6</sup></p>
+                <p>∥</p>
+                <p id="s2"></p>
+                <script>
+                    var b2 = 0;
+                    function disb2(){
+                        document.getElementById('b2').innerHTML = b2%2;
+                        document.getElementById('s2').innerHTML = b2%2*64;
+                        if (b2%2 == 0){
+                            document.getElementById('bu2').className = "buttonOff";
+                        }
+                        else{
+                            document.getElementById('bu2').className = "buttonOn";
+                        } summary();
+                    }
+                    disb2();
+                </script>
+            </div>
+        </div>
+        <div class="square">
+            <div class="square-inner">
+                <button onclick="b3 += 1; disb3();" class="buttonOff" id="bu3">
+                </button>
+                <p id='b3'></p>
+                <p>×</p>
+                <p>2<sup>5</sup></p>
+                <p>∥</p>
+                <p id="s3"></p>
+                <script>
+                    var b3 = 0;
+                    function disb3(){
+                        document.getElementById('b3').innerHTML = b3%2;
+                        document.getElementById('s3').innerHTML = b3%2*32;
+                        if (b3%2 == 0){
+                            document.getElementById('bu3').className = "buttonOff";
+                        }
+                        else{
+                            document.getElementById('bu3').className = "buttonOn";
+                        } summary();
+                    }
+                    disb3();
+                </script>
+            </div>
+        </div>
+        <div class="square">
+            <div class="square-inner">
+                <button onclick="b4 += 1; disb4();" class="buttonOff" id="bu4">
+                </button>
+                <p id='b4'></p>
+                <p>×</p>
+                <p>2<sup>4</sup></p>
+                <p>∥</p>
+                <p id="s4"></p>
+                <script>
+                    var b4 = 0;
+                    function disb4(){
+                        document.getElementById('b4').innerHTML = b4%2;
+                        document.getElementById('s4').innerHTML = b4%2*16;
+                        if (b4%2 == 0){
+                            document.getElementById('bu4').className = "buttonOff";
+                        }
+                        else{
+                            document.getElementById('bu4').className = "buttonOn";
+                        } summary();
+                    }
+                    disb4();
+                </script>
+            </div>
+        </div>
+        <div class="square">
+            <div class="square-inner">
+                <button onclick="b5 += 1; disb5();" class="buttonOff" id="bu5">
+                </button>
+                <p id='b5'></p>
+                <p>×</p>
+                <p>2<sup>3</sup></p>
+                <p>∥</p>
+                <p id="s5"></p>
+                <script>
+                    var b5 = 0;
+                    function disb5(){
+                        document.getElementById('b5').innerHTML = b5%2;
+                        document.getElementById('s5').innerHTML = b5%2*8;
+                        if (b5%2 == 0){
+                            document.getElementById('bu5').className = "buttonOff";
+                        }
+                        else{
+                            document.getElementById('bu5').className = "buttonOn";
+                        } summary();
+                    }
+                    disb5();
+                </script>
+            </div>
+        </div>
+        <div class="square">
+            <div class="square-inner">
+                <button onclick="b6 += 1; disb6();" class="buttonOff" id="bu6">
+                </button>
+                <p id='b6'></p>
+                <p>×</p>
+                <p>2<sup>2</sup></p>
+                <p>∥</p>
+                <p id="s6"></p>
+                <script>
+                    var b6 = 0;
+                    function disb6(){
+                        document.getElementById('b6').innerHTML = b6%2;
+                        document.getElementById('s6').innerHTML = b6%2*4;
+                        if (b6%2 == 0){
+                            document.getElementById('bu6').className = "buttonOff";
+                        }
+                        else{
+                            document.getElementById('bu6').className = "buttonOn";
+                        } summary();
+                    }
+                    disb6();
+                </script>
+            </div>
+        </div>
+        <div class="square">
+            <div class="square-inner">
+                <button onclick="b7 += 1; disb7();" class="buttonOff" id="bu7">
+                </button>
+                <p id='b7'></p>
+                <p>×</p>
+                <p>2<sup>1</sup></p>
+                <p>∥</p>
+                <p id="s7"></p>
+                <script>
+                    var b7 = 0;
+                    function disb7(){
+                        document.getElementById('b7').innerHTML = b7%2;
+                        document.getElementById('s7').innerHTML = b7%2*2;
+                        if (b7%2 == 0){
+                            document.getElementById('bu7').className = "buttonOff";
+                        }
+                        else{
+                            document.getElementById('bu7').className = "buttonOn";
+                        } summary();
+                    }
+                    disb7();
+                </script>
+            </div>
+        </div>
+        <div class="square">
+            <div class="square-inner">
+                <button onclick="b8 += 1; disb8();" class="buttonOff" id="bu8">
+                </button>
+                <p id='b8'></p>
+                <p>×</p>
+                <p>2<sup>0</sup></p>
+                <p>∥</p>
+                <p id="s8"></p>
+                <script>
+                    var b8 = 0;
+                    function disb8(){
+                        document.getElementById('b8').innerHTML = b8%2;
+                        document.getElementById('s8').innerHTML = b8%2;
+                        if (b8%2 == 0){
+                            document.getElementById('bu8').className = "buttonOff";
+                        }
+                        else{
+                            document.getElementById('bu8').className = "buttonOn";
+                        } 
+                        summary();
+                    }
+                    disb8();
+                </script>
+            </div>
+        </div>
+        <div class="nondis1">
+            <p>(2)</p>
+        </div>
+    </div>
+    <div class="summary">
+        <p id="total"></p>
+        <script>
+            function summary() {
+                document.getElementById('total').innerHTML = (b1%2*128)+(b2%2*64)+(b3%2*32)+(b4%2*16)+(b5%2*8)+(b6%2*4)+(b7%2*2)+(b8%2);
+            }
+            summary();
+        </script>
+        <div class="nondis">
+            <p>(10)</p>
+        </div>
+    </div>
+</div>
+
+<p>前面有提過位元這個詞，簡單來說其實這個小遊戲就代表8位元可以表示的所有數值，範圍是 <code>0 ~ 255</code> ，也就是 2<sup>8</sup> &#x3D; 256 個數。</p>
+<blockquote>
+<p>n位元可以表示數值範圍為 2<sup>n</sup> 個數，其最大表示數值為 2<sup>n</sup> - 1 。</p>
+</blockquote>
+<h1 id="十六進制-Hexadecimal"><a href="#十六進制-Hexadecimal" class="headerlink" title="十六進制　Hexadecimal"></a>十六進制　Hexadecimal</h1><p>二進制有個顯而易見的問題，就是因為都是 <code>1</code> 跟 <code>0</code> ，所以動不動就要會是一長串沒什麼邏輯的數字，雖然我們不太會需要記憶這些數字，但如果是要表示一些編碼給電腦看，就會很麻煩又難懂。</p>
+<p>因此我們會使用十六進制，也就是每數到16就會進位一次，那因為數字只有 <code>0 ~ 9</code> 嘛，所以會再加上 <code>A ~ F</code> ，才能用一個字元完整表示 0 ~ 15 。</p>
+<p>至於為什麼是16，而不是12、15之類的呢？前面有提到，我們希望可以增加二進制數值的可讀性。而因為16 &#x3D; 2<sup>4</sup>，因此每4位二進制數字都可以轉換成一個16進制的數字，例如：</p>
+<blockquote>
+<p>11010010<sub>2</sub> &#x3D; 2<sup>7</sup> + 2<sup>6</sup> + 2<sup>4</sup> + 2<sup>1</sup><br>&ensp;&ensp;&ensp;&ensp;&thinsp;&ensp;&ensp;&ensp;&ensp;&ensp; &#x3D; 2<sup>4</sup> * (2<sup>3</sup> + 2<sup>2</sup> + 2<sup>0</sup>) + 2<sup>1</sup><br>&ensp;&ensp;&ensp;&ensp;&thinsp;&ensp;&ensp;&ensp;&ensp;&ensp; &#x3D; 16<sup>1</sup> * 13 + 16<sup>0</sup> * 2<br>&ensp;&ensp;&ensp;&ensp;&thinsp;&ensp;&ensp;&ensp;&ensp;&ensp; &#x3D; 210<sub>10</sub><br>&ensp;&ensp;&ensp;&ensp;&thinsp;&ensp;&ensp;&ensp;&ensp;&ensp; &#x3D; D2<sub>16</sub></p>
+</blockquote>
+<p>上面是數學上如何計算，不過我們平常不用想這麼多，直接把二進位數分成每4位一組，直接轉換成十六進位數就可以了，例如：</p>
+<blockquote>
+<p><code>100100101011011</code>可以分成<br>&ensp;<code>100</code> <code>1001</code> <code>0101</code> <code>1011</code> （要記得整數是從最小位數開始取每四位一組）<br><code>0100</code> <code>1001</code> <code>0101</code> <code>1011</code> （不足四位的要在最前面補 <code>0</code>）<br><code>(4</code> &ensp;&ensp;&ensp;<code>9</code> &ensp;&ensp;&ensp;<code>5</code> &ensp;&ensp;&thinsp;<code>11)</code><sub>10</sub>（可以先轉成十進制）</p>
+<p>——–&gt; <code>495B</code><sub>16</sub></p>
+</blockquote>
+<p>一樣可以直接玩玩看底下的小遊戲，會比較有感！</p>
+<h3 id="十六進制小遊戲"><a href="#十六進制小遊戲" class="headerlink" title="十六進制小遊戲"></a>十六進制小遊戲</h3><div class="outer-section">
+    <div class="flexcon">
+        <div class="square">
+            <div class="square-inner">
+                <button onclick="b11 += 1; dis1b1();" class="buttonOff" id="bu11">
+                </button>
+                <p id='b11'></p>
+                <script>
+                    var b11 = 0;
+                    function dis1b1(){
+                        document.getElementById('b11').innerHTML = b11%2;
+                        if (b11%2 == 0){
+                            document.getElementById('bu11').className = "buttonOff";
+                        }
+                        else{
+                            document.getElementById('bu11').className = "buttonOn";
+                        } summary16();
+                    }
+                    dis1b1();
+                </script>
+            </div>
+        </div>
+        <div class="square">
+            <div class="square-inner">
+                <button onclick="b12 += 1; dis1b2();" class="buttonOff" id="bu12">
+                </button>
+                <p id='b12'></p>
+                <script>
+                    var b12 = 0;
+                    function dis1b2(){
+                        document.getElementById('b12').innerHTML = b12%2;
+                        if (b12%2 == 0){
+                            document.getElementById('bu12').className = "buttonOff";
+                        }
+                        else{
+                            document.getElementById('bu12').className = "buttonOn";
+                        } summary16();
+                    }
+                    dis1b2();
+                </script>
+            </div>
+        </div>
+        <div class="square">
+            <div class="square-inner">
+                <button onclick="b13 += 1; dis1b3();" class="buttonOff" id="bu13">
+                </button>
+                <p id='b13'></p>
+                <script>
+                    var b13 = 0;
+                    function dis1b3(){
+                        document.getElementById('b13').innerHTML = b13%2;
+                        if (b13%2 == 0){
+                            document.getElementById('bu13').className = "buttonOff";
+                        }
+                        else{
+                            document.getElementById('bu13').className = "buttonOn";
+                        } summary16();
+                    }
+                    dis1b3();
+                </script>
+            </div>
+        </div>
+        <div class="square">
+            <div class="square-inner">
+                <button onclick="b14 += 1; dis1b4();" class="buttonOff" id="bu14">
+                </button>
+                <p id='b14'></p>
+                <script>
+                    var b14 = 0;
+                    function dis1b4(){
+                        document.getElementById('b14').innerHTML = b14%2;
+                        if (b14%2 == 0){
+                            document.getElementById('bu14').className = "buttonOff";
+                        }
+                        else{
+                            document.getElementById('bu14').className = "buttonOn";
+                        } summary16();
+                    }
+                    dis1b4();
+                </script>
+            </div>
+        </div>
+        <div class="square">
+            <div class="square-inner">
+                <button onclick="b15 += 1; dis1b5();" class="buttonOff" id="bu15">
+                </button>
+                <p id='b15'></p>
+                <script>
+                    var b15 = 0;
+                    function dis1b5(){
+                        document.getElementById('b15').innerHTML = b15%2;
+                        if (b15%2 == 0){
+                            document.getElementById('bu15').className = "buttonOff";
+                        }
+                        else{
+                            document.getElementById('bu15').className = "buttonOn";
+                        } summary16();
+                    }
+                    dis1b5();
+                </script>
+            </div>
+        </div>
+        <div class="square">
+            <div class="square-inner">
+                <button onclick="b16 += 1; dis1b6();" class="buttonOff" id="bu16">
+                </button>
+                <p id='b16'></p>
+                <script>
+                    var b16 = 0;
+                    function dis1b6(){
+                        document.getElementById('b16').innerHTML = b16%2;
+                        if (b16%2 == 0){
+                            document.getElementById('bu16').className = "buttonOff";
+                        }
+                        else{
+                            document.getElementById('bu16').className = "buttonOn";
+                        } summary16();
+                    }
+                    dis1b6();
+                </script>
+            </div>
+        </div>
+        <div class="square">
+            <div class="square-inner">
+                <button onclick="b17 += 1; dis1b7();" class="buttonOff" id="bu17">
+                </button>
+                <p id='b17'></p>
+                <script>
+                    var b17 = 0;
+                    function dis1b7(){
+                        document.getElementById('b17').innerHTML = b17%2;
+                        if (b17%2 == 0){
+                            document.getElementById('bu17').className = "buttonOff";
+                        }
+                        else{
+                            document.getElementById('bu17').className = "buttonOn";
+                        } summary16();
+                    }
+                    dis1b7();
+                </script>
+            </div>
+        </div>
+        <div class="square">
+            <div class="square-inner">
+                <button onclick="b18 += 1; dis1b8();" class="buttonOff" id="bu18">
+                </button>
+                <p id='b18'></p>
+                <script>
+                    var b18 = 0;
+                    function dis1b8(){
+                        document.getElementById('b18').innerHTML = b18%2;
+                        if (b18%2 == 0){
+                            document.getElementById('bu18').className = "buttonOff";
+                        }
+                        else{
+                            document.getElementById('bu18').className = "buttonOn";
+                        } 
+                        summary16();
+                    }
+                    dis1b8();
+                </script>
+            </div>
+        </div>
+        <div class="nondis">
+            <p>(2)</p>
+        </div>
+    </div>
+    <div class="con16">
+        <div class="flexeven">
+            <div class="inlineflex">
+                <p id="sum16a"></p> 
+            </div>
+            <div class="inlineflex">
+                <p id="sum16b"></p>
+                <div class="nondis">
+                    <p>(16)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="summary">
+        <p id="total16"></p>
+        <script>
+            function summary16() {
+                document.getElementById('total16').innerHTML = (b11%2*128)+(b12%2*64)+(b13%2*32)+(b14%2*16)+(b15%2*8)+(b16%2*4)+(b17%2*2)+(b18%2);
+                var a = (b11%2*8)+(b12%2*4)+(b13%2*2)+(b14%2);
+                a = a.toString(16);
+                var b = (b15%2*8)+(b16%2*4)+(b17%2*2)+(b18%2);
+                b = b.toString(16)
+                document.getElementById('sum16a').innerHTML = a.toUpperCase();
+                document.getElementById('sum16b').innerHTML = b.toUpperCase();
+            }
+            summary16();
+        </script>
+        <div class="nondis">
+            <p>(10)</p>
+        </div>
+    </div>
+</div>
+
+<p>十六進制的表示就很多元了，我們有遇到再說，最好懂的還是下標<sub>16</sub>跟縮寫<em>Hex</em>，那除了十六進制以外其實還有八進制，每一位可以表示3位元的二進制數，不過基本上還是十六進制比較常用一點，所以就不多提八進制了。</p>
+<h1 id="十六進制的應用"><a href="#十六進制的應用" class="headerlink" title="十六進制的應用"></a>十六進制的應用</h1><hr>
+<p>那我們會在哪些地方用到十六進制呢？嚴格來說，電腦讀到的通通都是二進制，而十六進制跟二進制之間的轉換比十進制轉二進制方便許多，所以當我們要表示一些給電腦看的編碼時，就經常會使用十六進制的方式來簡化。</p>
+<p>第一個很常用到的就是<strong>RGB色碼</strong>了，在網頁設計中我們經常會使用十六進制的色碼來定義顏色。RGB分別就是Red、Green、Blue，每種顏色的值都是用 <code>0 ~ 255</code> ，也就是8位元，兩位十六進制數字來表示。比方說白色的色碼就是 <code>#FFFFFF</code> ，相當於rgb(255,255,255)的意思。</p>
+<blockquote><footer><strong>國中理化有教喔！</strong><cite><a href="https://www.ehanlin.com.tw/app/keyword/%E5%9C%8B%E4%B8%AD/%E7%90%86%E5%8C%96/%E5%85%89%E7%9A%84%E4%B8%89%E5%8E%9F%E8%89%B2.html">翰林雲端學院</a></cite></footer></blockquote>
+
+<p>下面我隨便抓幾個色碼展示一下：</p>
+<p><span style="background-color: #FFFFFF;color: #696969;">#FFFFFF</span> <span style="background-color: #FF0000;color: #696969;">#FF0000</span> <span style="background-color: #00FF00;color: #696969;">#00FF00</span> <span style="background-color: #0000FF;color: #F5F5F5;">#0000FF</span> <span style="background-color: #4682B4;color: #F5F5F5;">#4682B4</span> <span style="background-color: #ADD8E6;color: #696969;">#ADD8E6</span> <span style="background-color: #98FB98;color: #696969;">#98FB98</span> <span style="background-color: #EE9A00;color: #696969;">#EE9A00</span> <span style="background-color: #FFAEB9;color: #696969;">#FFAEB9</span> <span style="background-color: #FFD700;color: #696969;">#FFD700</span> <span style="background-color: #EE82EE;color: #696969;">#EE82EE</span> <span style="background-color: #FFE4C4;color: #696969;">#FFE4C4</span> <span style="background-color: #4F4F4F;color: #F5F5F5;">#4F4F4F</span> <span style="background-color: #BFEFFF;color: #696969;">#BFEFFF</span> <span style="background-color: #191970;color: #F5F5F5;">#191970</span> <span style="background-color: #000000;color: #F5F5F5;">#000000</span></p>
+<p>大概是這種感覺，可以找到自己喜歡的顏色後用色碼表示放在網頁上，也可以參考這些網站：</p>
+<blockquote>
+<p><a href="http://www.wahart.com.hk/rgb.htm">RGB配色表</a><br><a href="https://www.w3schools.com/colors/colors_rgb.asp">Colors RGB and RGBA</a></p>
+</blockquote>
+<p>其他會用到十六進制的編碼系統還有：</p>
+<blockquote>
+<h3 id="ensp-Unicode"><a href="#ensp-Unicode" class="headerlink" title="&ensp;Unicode"></a>&ensp;Unicode</h3><ul>
+<li>全世界通用的字元邊碼集。</li>
+<li>整理、編碼了絕大多數語言的字元。</li>
+<li><a href="https://zh.wikipedia.org/zh-tw/Unicode%E5%AD%97%E7%AC%A6%E5%88%97%E8%A1%A8">Unicode字元列表</a></li>
+</ul>
+</blockquote>
+<blockquote>
+<h3 id="ensp-IPv6"><a href="#ensp-IPv6" class="headerlink" title="&ensp;IPv6"></a>&ensp;IPv6</h3><ul>
+<li>網際網路位址協定的最新版本。</li>
+<li>取代IPv4，解決位址枯竭的問題。</li>
+<li>128位元的位址，以共8組的4位十六進制表示，共有2<sup>128</sup>或16<sup>32</sup>個不同的位址。</li>
+<li><a href="https://zh.wikipedia.org/zh-tw/IPv6">IPv6-Wikipedia</a></li>
+</ul>
+</blockquote>
+<blockquote>
+<h3 id="ensp-MAC位址-Media-Access-Control-Address"><a href="#ensp-MAC位址-Media-Access-Control-Address" class="headerlink" title="&ensp;MAC位址 Media Access Control Address"></a>&ensp;MAC位址 Media Access Control Address</h3><ul>
+<li>跟IP位址不同，MAC更偏向網路裝置在現實之中的門牌號碼。</li>
+<li>每個裝置在出廠時就指定好不重複的MAC位址，通常不可更動。</li>
+<li><a href="https://zh.wikipedia.org/zh-tw/MAC%E5%9C%B0%E5%9D%80">MAC位址-Wikipedia</a></li>
+</ul>
+</blockquote>
+<p>這邊稍微舉幾個例子淺提一下，之後可能會再深入談一點，有興趣的話也可以自行Google，或是問ChatGPT，我還滿喜歡用GPT找關鍵字的，通常都會給出不錯的答案，再拿來深入問GPT或是去搜尋相關文章，都很好用。</p>
+<hr>
+<p>那第一課差不多就到這邊啦，一不小心寫了滿長，之後的課應該也會是這種文字配上一點點互動的形式，因為互動的部分需要設計一下，所以還是會花點時間，希望有幫助。</p>
+<p>那今天就到這邊啦！我們下堂課見！</p>
+]]></content>
+      <categories>
+        <category>articles</category>
+      </categories>
+      <tags>
+        <tag>初學者系列</tag>
       </tags>
   </entry>
   <entry>

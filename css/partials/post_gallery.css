@@ -11,7 +11,8 @@
 }
 .post-gallery-item .post-info {
   margin-right: $margin-l-0;
-  width: 50%;
+  width: auto;
+  height: 200px;
   display: flex;
   flex-direction: column;
 }
@@ -19,7 +20,9 @@
   margin-bottom: $margin-m-1;
 }
 .post-gallery-item .post-img {
-  width: 60%;
+  width: 50%;
+  margin-left: auto;
+  max-height: 200px;
 }
 @media (max-width: 480px) {
   .post-gallery-item {
