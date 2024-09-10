@@ -112,6 +112,331 @@
       </categories>
   </entry>
   <entry>
+    <title>Hexo基本操作分享</title>
+    <url>/2024/08/29/hexobasic/</url>
+    <content><![CDATA[<blockquote>
+<p><a href="https://hackmd.io/@Heidi-Liu/note-hexo-github">參考文章</a></p>
+</blockquote>
+<p>看到Hexo一陣子了，我一直都想自己架個站，但都懶得動，這次實習完終於喚醒我長年睡著的Coding魂（其實也是終於有機會跟上新時代的工具了），剛好也有時間就來搞搞看，結果發現其實真的滿簡單的，也滿好用。</p>
+<h1 id="What-is-Hexo"><a href="#What-is-Hexo" class="headerlink" title="What is Hexo?"></a>What is Hexo?</h1><hr>
+<p>開玩笑的，我最不會解釋這種東西了，基本上就是個寫網誌的框架啦！</p>
+<blockquote>
+<p><a href="https://hexo.io/zh-tw/">官網連結</a></p>
+</blockquote>
+<p>其實官網就有完整（？）教學了，架起來真的很簡單，我第一次用遇到的問題比較都是不熟悉現代工具（node.js, git）造成的，每個人應該都有不太會打Terminal的時代吧…還是單純我笨QQ</p>
+<h1 id="環境建置"><a href="#環境建置" class="headerlink" title="環境建置"></a>環境建置</h1><hr>
+<p>反正官網其實開頭就告訴你需要什麼指令了</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-cli -g</span><br><span class="line">$ hexo init blog</span><br><span class="line">$ <span class="built_in">cd</span> blog</span><br><span class="line">$ npm install</span><br><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>好吧，既然我的初衷是要手把手教學，這裡就講仔細點，順便讓我練一下Markdown。</p>
+<p>首先最基礎的是，看到 <code>npm</code> 的時候就要有意識了，基本上這個時代寫程式最容易看到卻也最容易讓小白卡住的兩個詞就是 <code>npm</code> 或 <code>pip</code> 。簡單來說他們有點像兩種下載器， <code>npm</code> 是node.js預設的，<code>pip</code> 則是Python預設的，你的電腦要先裝好對應的環境，才可以在Terminal上使用這些指令。</p>
+<blockquote>
+<p><a href="https://nodejs.org/zh-tw">node.js官網</a></p>
+</blockquote>
+<p>因此這裡第一件要做的事就是把node裝好，裝好之後大概就會產生下一個疑問了：</p>
+<h3 id="我要在哪裏打剛剛的指令…"><a href="#我要在哪裏打剛剛的指令…" class="headerlink" title="我要在哪裏打剛剛的指令…"></a>我要在哪裏打剛剛的指令…</h3><p>剛剛有提過Terminal了，我一直覺得這東西的存在就是為了阻止程式小白開始寫程式，因為真的太基本了所以基本上沒什麼人會教…至於我為什麼一直覺得這是新世代的方法，主要是因為以前都在學校學，真的沒什麼教過在Terminal上執行東西，也是比較少碰現在這些框架，甚至是比較大的框架大部分不一定需要用這種Package的方式安裝（其實我直覺也舉不出例子，但還真就剛好沒人教過我怎麼用npm），總之以前沒什麼跡會用這些方便的工具，也不太有在用Terminal，於是後來我就一直對這個很困惑。</p>
+<p>最近又回來比較密集的碰這些東西才重新理解，那就來詳細說一下我理解的內容吧，簡單來說Terminal其實就是電腦上可以輸入指令的地方，以Windows來說比較常用的就是<strong>cmd（Command Line, 命令提示字元）</strong>，在開始輸入cmd就會直接跳出來；另外還有<strong>PowerShell</strong>，基本上把他當強化版的cmd就對了，功能比cmd完整，但整體使用上差不多。</p>
+<p>macOS或Linux的話應該是打開終端機視窗。</p>
+<p>不過我自己現在最常用的是<a href="https://code.visualstudio.com/"><strong>VS Code（Visual Studio Code）</strong></a>內建的Terminal啦，高中有在寫程式的時候大家對VS Code的評價好像都不是很好，我記得那時候還很多人是用Sublime Text去裝C++插件來寫。但時代變了，現在整個生態系越來越完整，VS Code變好用很多（其實我好像一直都沒覺得它難用就是了），重點是我覺得變漂亮很多，畢竟寫Code整天只能盯著這個畫面，好看還是很重要的。</p>
+<p>回到重點，大部分的IDE（Integrated Development Environment, 整合開發環境）其實應該都有內建的Termanal，畢竟現在的框架很多都需要指令來配合使用，打一打還要切出去挺麻煩的，這時候內建的Terminal就很方便，加上VS Code本身就是微軟開發的，在Windows環境的支援性應該還是比較好（我也沒有比較過就是了）。</p>
+<p>至於用Mac的朋友我只能說聲抱歉，我真的沒有用過，這就要靠你們自己摸索了。</p>
+<p>另一個要安裝的環境則是<a href="https://git-scm.com/"><strong>git</strong></a>，雖然對於Hexo來說不是必要的，但是如果要發佈到Github Page或是安裝插件都會用到，所以如果電腦裡還沒有也可以先裝起來。</p>
+<p>再回到剛剛的指令，我們一行一行來看好了：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+<p>首先又有一個大重點，我覺得這也是要阻止外行人學程式的陰謀…可以看到一開始有個 <code>$</code> 符號，基本上我相信99%的人第一次看到就會整行複製，然後Windows就會吐一句話給你：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="string">&#x27;$&#x27;</span> 不是內部或外部命令、可執行的程式或批次檔。</span><br></pre></td></tr></table></figure>
+<p>是的，其實很簡單的問題，那個 <code>$</code> 不是要你複製貼上的，以我目前的理解，它比較像是在告訴你這行是一個指令，可以打在Terminal上執行，不過實際上好像會因為作業系統而不同（這部分我是問ChatGPT，我也不確定，手邊有Linux系統的可以自己試試看），反正Linux&#x2F;Unix中輸入的話， <code>$</code> 應該是可打可不打，但Windows是直接不收，所以如果是純粹針對Windows的教學其實有些就會不加 <code>$</code> ，例如這樣：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+<p>不過我還是必須說，我覺得指令滿多時候會因為每台電腦環境、版本的些微不同而出一些奇怪的Bug，所以遇到問題還是要多google，基本上能過最重要，不用因為自己的指令跟別人不同感到難過（？），我其實不太確定這是什麼問題就是了，但我印象中確實有遇過這樣的情況，很怪。</p>
+<p>那這個指令就是安裝啦，<code>install</code> 應該都看得懂吧，執行完就會在你所在的目錄安裝好Hexo啦，其實釐清這個邏輯以後就會發現這很方便，反正指令google就有，也不太需要記。</p>
+<p>那下一個指令就是Hexo自己的指令了，這邊做的是初始化Hexo，執行後會在所在的目錄建立一個資料夾：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo init &lt;folder name&gt;</span><br></pre></td></tr></table></figure>
+<p><code>&lt;folder name&gt;</code> 記得改成自己要的名稱，也可以先建好資料夾並在該資料夾輸入上面的指令，同樣可以完成初始化。</p>
+<p>下個指令很重要，很常用：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> &lt;folder name&gt;</span><br></pre></td></tr></table></figure>
+<p><code>cd</code> 是個很常用的指令，基本上就是 <code>change directory</code> 的意思，也就是把執行指令的目錄變更到目標目錄去，對，這裡補充一下，基本上執行指令的對象都是對某個目錄，所以以這邊的情境來說，就是我剛建立了一個新的資料夾，現在我要對這個資料夾做一些變更或執行一些東西，所以我要把執行的目錄變更為新的資料夾。上一步如果要先建立資料夾，就是建立好之後 <code>cd</code> 到新的資料夾裡面，所以其實兩個做法真的是差不多的意思啦。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>其實也可以打開資料夾之後在檔案總管的路徑那邊直接輸入cmd，跟 <code>cd</code> 指令是一樣的意思。</p>
+</blockquote>
+<p>這邊就是在新資料夾把需要的Package重新安裝一次，沒問題的話會看到這些檔案跟資料夾：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml</span><br><span class="line">├── package.json</span><br><span class="line">├── scaffolds</span><br><span class="line">├── <span class="built_in">source</span></span><br><span class="line">|   ├── _drafts</span><br><span class="line">|   └── _posts</span><br><span class="line">└── themes</span><br></pre></td></tr></table></figure>
+<p>基本上這邊就差不多了，輸入最後一個指令就可以在本地端發布靜態網頁，可以看到網頁的最初模樣：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>就可以點Terminal上的<a href="http://localhost:4000/">連結</a>來看到自己發布的網頁了。</p>
+<h1 id="基本設置"><a href="#基本設置" class="headerlink" title="基本設置"></a>基本設置</h1><hr>
+<p>如果你照著上面的步驟走完一遍，應該會發現我的網頁跟你的長不一樣吧！其實Hexo官網上提供了很多的<a href="https://hexo.io/themes/">主題（Themes）</a>，可以去挑自己喜歡的來用，我目前用的這個是<a href="https://github.com/zoeingwingkei/frame/tree/master">Frame</a>，其實算是歪打正著找到一個滿漂亮功能又滿多的，大家也可以自己探索，基本上官網都有Demo網頁（不過有些網域沒有維護被連結到其他地方去了，請大家瀏覽的時候自行注意安全），可以慢慢尋找自己最喜歡的主題，因為每個主題的設置會不太一樣，所以如果是用了一陣子之後才換可能會稍微有點麻煩，大家就自己研究看看囉！</p>
+<p>那這裡先從Hexo的基本設置開始說起，不過我不會講太仔細，網路上有很多教學講得很詳細，這部分我也還沒研究清楚就不班門弄斧了。</p>
+<p>這邊指的基本設置是在剛剛建立的新資料夾中，有一個 <code>_config.yml</code> 的檔案，可以用記事本打開或是直接拉到VS Code裡開啟，打開之後可以看到滿多設定可以更改，這裡講幾個比較基本的：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Site</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">Roy&#x27;s</span> <span class="string">Blog</span></span><br><span class="line"><span class="attr">subtitle:</span> <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="attr">description:</span> <span class="string">&#x27;我的網路與程式開發筆記&#x27;</span></span><br><span class="line"><span class="attr">keywords:</span></span><br><span class="line"><span class="attr">author:</span> <span class="string">Roy</span></span><br><span class="line"><span class="attr">language:</span> <span class="string">zh</span></span><br><span class="line"><span class="attr">timezone:</span> <span class="string">&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>應該算容易理解，<code>title</code> 就是網站標題，也就是顯示在分頁上的字，<code>description</code> 則是對網頁的描述，通常是給搜尋引擎看的啦，以下這幾個差不多都是這個意思，看個人需要再編輯即可。</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Directory</span></span><br><span class="line"><span class="attr">source_dir:</span> <span class="string">source</span></span><br><span class="line"><span class="attr">public_dir:</span> <span class="string">public</span></span><br><span class="line"><span class="attr">tag_dir:</span> <span class="string">tag</span></span><br><span class="line"><span class="attr">archive_dir:</span> <span class="string">archives</span></span><br><span class="line"><span class="attr">category_dir:</span> <span class="string">categories</span></span><br><span class="line"><span class="attr">code_dir:</span> <span class="string">downloads/code</span></span><br><span class="line"><span class="attr">i18n_dir:</span> <span class="string">:lang</span></span><br><span class="line"><span class="attr">skip_render:</span></span><br></pre></td></tr></table></figure>
+<p>這邊比較重要，這邊是決定產生的靜態檔案會跑去哪，也會決定它們的相對路徑，所以如果有找不到頁面的情況，可能是其他地方的設定跟這裡不同造成的。</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Extensions</span></span><br><span class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></span><br><span class="line"><span class="attr">theme:</span> <span class="string">frame</span></span><br></pre></td></tr></table></figure>
+<p>這裡則是設置使用的主題，上面還很貼心的提供了官網連結，可以瀏覽所有的主題以及插件，之後 <code>git clone</code> 到對應的資料夾使用。</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/one-command-deployment</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">&lt;Your</span> <span class="string">Github</span> <span class="string">Page</span> <span class="string">Link&gt;</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+<p>另外先提一下，如果有要發佈到Github Page上，需要在這裡先設定自己的Github Repository連結，才可以順利發佈上去，這個我之後會再詳細講一遍，我們先看看其他設定吧。</p>
+<hr>
+<p>接下來講講<strong>主題</strong>相關的設置吧，基本上每個主題的設置都會不太一樣，所以我講比較通用的概念為主，先講個先備知識，如果你不太了解相對路徑如何運作，請先去google複習一下，我就不贅述了。</p>
+<p>主題的設置會在 <code>themes</code> 資料夾裡，該主題的資料夾中會有另一個 <code>_config.yml</code> 檔案，一樣開啟它之後就會看到該主題對應的設置，基本上每個主題Github上的 <code>README.md</code> 會有自己的說明，都講得滿清楚的。</p>
+<p>先岔開一下好了，對於比較少用這種類型框架的人來說可能會遇到跟我一樣的問題，或著單純我傻QQ，在我以前的認知裡，尤其對於靜態網頁，我直覺就是找 <code>public</code> 資料夾，因為通常就是這樣叫的嘛，所以我就拿裡面的東西改改改，然後照著教學打指令之後就發現我改的東西不見了…</p>
+<p>其實仔細想想真的滿笨的。因為Hexo是靜態的網頁框架，所以每次更改之後都要重新產生靜態網頁，需要輸入以下兩個指令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo cl</span><br><span class="line">$ hexo g</span><br></pre></td></tr></table></figure>
+<p>就是把原本的靜態網頁刪除，然後產生新的，就這麼簡單而已，但相對來說在 <code>public</code>裡面改的東西就會消失，<strong>所以不論改什麼，都不要在 <code>public</code> 資料夾底下改</strong>，除非你確定你再也不會用Hexo本身的功能生成靜態網頁，否則改任何圖示都要在 <code>/themes/source</code> 底下去改檔案，如果要改網頁的Layout則是要到 <code>themes/layout</code> 底下去改 <code>.ejs</code> 檔， <code>.ejs</code> 的具體操作我就不明白了，大家有興趣可以自行研究。然後再用 <code>$ hexo g</code> 根據 <code>themes</code> 裡面的檔案去生成靜態網頁，這時候才會用裡面的圖檔、文件去生成新的靜態網頁到 <code>public</code> 裡面。</p>
+<p>所以說這邊比較通用且好更改的東西就是網頁上顯示的圖示了，第一個是 <code>favicon.ico</code> ，可以在 <code>/themes/source</code> 裡面找到它，它就是我們平常在分頁標籤最左邊可以看到的那個圖示。想要自己動手做的話可以到<a href="https://favicon.io/"><strong>favicon.io</strong></a>，或是用<a href="https://www.figma.com/"><strong>figma</strong></a>輸出 <code>.png</code> 檔再轉成 <code>.ico</code> 檔，之後丟到 <code>/themes/source</code> 就可以了。</p>
+<p>網頁內的Icon也是用一樣的方式操作，我比較建議的方式也是用Figma輸出 <code>.png</code> 檔，Figma真的很推，簡單好用漂亮，但如果你有其他用得順手的工具當然也OK。</p>
+<p>另外再介紹一個好用的插件，<a href="https://github.com/next-theme/hexo-generator-searchdb"><strong>hexo-generator-searchdb</strong></a>是一款本地搜尋插件，我不確定它能不能跟其他主題完全相容，但Frame有<a href="https://zoeingwingkei.github.io/frame-demo-site/2022/08/05/local-search/">完整支援</a>，非常簡單就能設置完成，我覺得我還是滿需要搜尋功能的，不然寫多了都不記得自己寫過啥XD</p>
+<h1 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h1><hr>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new &lt;layout&gt; &lt;title&gt;</span><br></pre></td></tr></table></figure>
+<p>這邊就是建立新的頁面，Layout可選的有三種：</p>
+<table>
+<thead>
+<tr>
+<th align="left">Layout</th>
+<th align="left">path</th>
+<th align="left">defnition</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>post</code></td>
+<td align="left"><code>source/_post</code></td>
+<td align="left">文章</td>
+</tr>
+<tr>
+<td align="left"><code>page</code></td>
+<td align="left"><code>source</code></td>
+<td align="left">頁面</td>
+</tr>
+<tr>
+<td align="left"><code>draft</code></td>
+<td align="left"><code>source/_drafts</code></td>
+<td align="left">草稿</td>
+</tr>
+</tbody></table>
+<p>基本上 <code>post</code> 跟 <code>draft</code> 是差不多的東西，單純就是產生在不同的目錄底下而已； <code>page</code> 就比較不一樣，它是直接建立一個頁面，就有很多可以玩的了，我暫時還沒研究。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo clean</span><br></pre></td></tr></table></figure>
+<p>清除快取與已產生的靜態檔案，建議每次儲存修改完的檔案都可以先執行這個。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>就是生成靜態檔案，所以先用 <code>clean</code> 清除再重新生成一次，就這樣。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>這個剛剛有講過了，在本地端啟動Hexo server，就可以在自己電腦上預覽結果，要關掉的話回到Terminal點一下之後按 <code>Ctrl+C</code> 就可以了。</p>
+<h1 id="發佈到Github-Page"><a href="#發佈到Github-Page" class="headerlink" title="發佈到Github Page"></a>發佈到Github Page</h1><hr>
+<p>這邊…真的滿簡單的，所以我就不多寫了，可以參考其他人的文章，以下附上兩篇：</p>
+<blockquote>
+<p><a href="https://hackmd.io/@Heidi-Liu/note-hexo-github">Github Page</a></p>
+</blockquote>
+<blockquote>
+<p><a href="https://medium.com/i-caught-a-code/hexo-%E7%84%A1%E7%97%9B%E5%85%A5%E5%9D%91%E5%9B%89-1a119a6805e5">Gitlab + Netlify</a></p>
+</blockquote>
+<p>設定好之後就是在每次修改完依序執行：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo cl</span><br><span class="line">$ hexo g</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
+<p>這三行指令就是前面 <code>clean</code> 跟 <code>generate</code> 的縮寫，再加上一個 <code>deploy</code> 。</p>
+<p>基本上這樣就可以開始玩啦！底下再附上幾個連結給大家參考：</p>
+<p>Markdown語法相關：</p>
+<blockquote>
+<p><a href="https://kingofamani.gitbooks.io/git-teach/content/chapter_6_gitbook/markdown.html">MD語法教學</a></p>
+</blockquote>
+<blockquote>
+<p><a href="https://hexo.io/zh-tw/docs/tag-plugins">Hexo提供的Tag Plugins</a></p>
+</blockquote>
+<p>要注意的是Tag Plugins雖然用起來滿方便的，但在VS Code預覽時不會正常顯示，算是小麻煩的點。</p>
+<h1 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h1><hr>
+<p>其實我也才剛開始玩Hexo而已，這篇主要就是一些基本介紹，如果之後有玩出其他東西再來跟大家分享。Hexo真的算是滿簡單好用，滿推薦大家自己弄起來玩玩看的，而且因為是自己架的，相對來說在上面寫東西負擔也比較小，算是慢慢建立個人網站的起步好幫手。那如果有摸出新東西再來跟大家分享啦，之後幾篇應該會先寫原本預計寫的東西，過一陣子再回來研究Hexo，就這樣囉！</p>
+]]></content>
+      <categories>
+        <category>articles</category>
+      </categories>
+      <tags>
+        <tag>Web</tag>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>文組生的資訊素養：第二課　關於電腦的那些事-1</title>
+    <url>/2024/09/01/l1-2/</url>
+    <content><![CDATA[<p>今天來講一些電腦硬體相關的事好了，可能算是我的簡易版計概，計概真的太大本了，又塞滿一堆古代內容，我就寫我覺得比較重要的部分就好。說是這麼說啦…我去翻了一下以前做的簡報，又發現我其實講很細…以前覺得重要的點又跟現在不太一樣，滿頭痛的。</p>
+<p>所以硬體相關的應該會有不只一篇，因為真的太多東西可以講了，那我盡量不要講太深，還是以一種引起興趣的方式來介紹給大家囉！</p>
+<h1 id="位元-Bit"><a href="#位元-Bit" class="headerlink" title="位元 Bit"></a>位元 Bit</h1><hr>
+<p>上次講完二進制不知道大家吸收的如何，有大概提到過位元（bit）就是二進制中的一位，但幾乎都不會只有一位嘛，只有一位的話就只能表示 <code>true</code> 跟 <code>false</code> ，但我們還會需要計算更多東西，所以用到更多位元的話，就會用到其他單位來計算。</p>
+<p>首先就是<strong>位元組（byte）</strong>，8個 <code>bit</code> 就是1個 <code>byte</code>。從這邊開始就可以慢慢開始熟悉更多跟二進制有關的概念了，因為電腦本身用的方式就是二進制嘛，所以各式各樣的單位，其實都會用2的n次方來定義。</p>
+<p>那以歷史意義來說，8位元除了長得工整，可以用兩位十六進制表示以外，最主要會用8位元當作一個基本單位其實是因為早期電腦系統都是以英文（更準確來說就是拉丁字母）為主，所使用的編碼集是<a href="https://zh.wikipedia.org/zh-tw/ASCII"><code>ASCII</code></a>（讀作&#x2F;ˈæski&#x2F; ，啊嘶ㄎㄧˋ），總共有128個字元，其實是7位元，但7位元實在是不太漂亮，所以索性就用8位元當作一個位元組，多出來的一個位元可以用來做一些其他的功能。</p>
+<p>位元組是基本單位，那更大的單位如何表示呢？這裡開始會出現大家熟悉的名詞了，或著說應該至少看過前三個…？</p>
+<div>
+    <table style="text-align: left; margin-left:1em; font-size:88%; border-radius:5%;">
+        <style>
+            th, td {
+            border-bottom: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+            border-left: 1px solid #ddd;
+            }
+            .bytecontent td,tr{
+                background-color :#ABC1CD;
+            }
+        </style>
+    <tbody>
+        <table style="border:0px #aaa solid">
+            <tbody>
+                <tr>
+                    <th colspan="3" style="background-color:#6E98A6; text-align:center;">
+                        <p style="color: #E9F2F2;">十進位字首（公制）</p>
+                    </th>
+                </tr>
+                <tr>
+                    <th colspan="1" style="background-color:#C8D8Df; text-align:left; padding:10px; color:#002a56;">數量級
+                    </th>
+                    <th colspan="1" style="background-color:#C8D8Df; text-align:left; padding:10;color:#002a56;">縮寫
+                    </th>
+                    <th colspan="1" style="background-color:#C8D8Df; text-align:left; padding:10;color:#002a56;">
+                        名稱
+                    </th>
+                </tr>
+                <div class="bytecontent">
+                    <tr>
+                        <td>1000
+                        </td>
+                        <td><code>kB</code></td>
+                        <td>kilobyte
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>1000<sup>2</sup>
+                        </td>
+                        <td><code>MB</code></td>
+                        <td>megabyte
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>1000<sup>3</sup>
+                        </td>
+                        <td><code>GB</code></td>
+                        <td>gigabyte
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>1000<sup>4</sup>
+                        </td>
+                        <td><code>TB</code></td>
+                        <td>terabyte
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>1000<sup>5</sup>
+                        </td>
+                        <td><code>PB</code></td>
+                        <td>petabyte
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>1000<sup>6</sup>
+                        </td>
+                        <td><code>EB</code></td>
+                        <td>exabyte
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>1000<sup>7</sup>
+                        </td>
+                        <td><code>ZB</code></td>
+                        <td>zettabyte
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>1000<sup>8</sup>
+                        </td>
+                        <td><code>YB</code></td>
+                        <td>yottabyte
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>1000<sup>9</sup>
+                        </td>
+                        <td><code>RB</code></td>
+                        <td>ronnabyte
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>1000<sup>10</sup>
+                        </td>
+                        <td><code>QB</code></td>
+                        <td>quettabyte
+                        </td>
+                    </tr>
+                </div>
+            </tbody>
+        </table>
+    </tbody>
+</table>
+</div>
+
+<p>以上，基本上不用記得啦…</p>
+<p>日常生活中會用到的就前四個， <code>kB</code> 、 <code>MB</code> 、 <code>GB</code> 跟 <code>TB</code> 而已，最多最多可能看到 <code>PB</code> 吧，某些新聞或技術文章會出現。其餘應該暫時還用不到，就像課本裡那些<a href="https://zh.wikipedia.org/wiki/%E4%BA%AC_(%E6%95%B8%E5%AD%97%E5%96%AE%E4%BD%8D)">京</a>、<a href="https://zh.wikipedia.org/wiki/%E6%81%86%E6%B2%B3%E6%B2%99">恆河沙</a>、<a href="https://zh.wikipedia.org/zh-tw/%E4%B8%8D%E5%8F%AF%E6%80%9D%E8%AD%B0">不可思議</a>之類的單位，就算真的有這麼大的數通常也是直接用數量級表示了，不太會用單位。</p>
+<p>所以也就是說其實很簡單啦，這邊用到的這些單位其實就是各差1000（10<sup>3</sup>）倍而已，但是只有這一種十進制的單位嗎？其實也不只…以kB為例，跟他長得很像的有這些：</p>
+<div>
+    <table style="text-align: left; margin-left:1em; font-size:88%; border-radius:5%;">
+        <tbody>
+            <table style="border-style: hidden;">
+                <style>
+                    th, td {
+                    border-bottom: 1px solid #ddd;
+                    border-right: 1px solid #E9F2F2;
+                    border-left: 1px solid #E9F2F2;
+                    }
+                    .bytecontent td,tr{
+                        background-color :#ABC1CD;
+                    }
+                </style>
+                <tbody>
+                    <tr>
+                        <th colspan="2" style="background-color:#C8D8Df; text-align:left; padding:10px; color:#002a56;">十進制
+                        </th>
+                        <th colspan="2" style="background-color:#C8D8Df; text-align:left; padding:10px;color:#002a56;">二進制
+                        </th>
+                    </tr>
+                    <div class="bytecontent">
+                        <tr>
+                            <td><code>kB</code></td>
+                            <td><code>kbit(kb)</code></td>
+                            <td><code>KiB</code></td>
+                            <td><code>Kibit(Kib)</code></td>
+                        </tr>                    
+                        <tr>
+                            <td>kilobyte</td>
+                            <td>kilobit</td>
+                            <td>kibibyte</td>
+                            <td>kibibit</td>
+                        </tr>                    
+                        <tr>
+                            <td>10<sup>3</sup> bytes</td>
+                            <td>10<sup>3</sup> bits</td>
+                            <td>2<sup>10</sup> byte</td>
+                            <td>2<sup>10</sup> bits</td>
+                        </tr>
+                    </div>
+                </tbody>
+            </table>
+        </tbody>
+    </table>
+</div>
+
+<p>情況一瞬間變得非常糟糕，好多奇怪的單位出現了。不要緊張，我們從看過的東西一個一個來。</p>
+<p>先以十進制這邊來說，可以發現除了前面講過的大寫 <code>B</code> 以外，出現了另一種小寫 <code>bit</code> 或 <code>b</code> ，沒錯！小寫 <code>b</code> 的版本就是位元的數量級單位，翻成中文的話 <code>kB</code> 就是千位元組， <code>kbit</code> 或 <code>kb</code> 就是千位元。所以這兩個其實還算好理解吧！</p>
+<p>二進制這邊就是另一個概念了，每個數量級都會相差2<sup>10</sup>倍，也就是1024倍。老樣子，是因為電腦實際上的設計方式都是以2的倍數為基礎，例如匯流排寬度、儲存單位的大小等等，都會是以2的倍數來設計。所以才會有二進制的數量級單位，否則用十進制表示的話數字會變很醜，也不方便。</p>
+<p><strong>那問題來了，請問我們平常用的到底是什麼制的單位呢？</strong></p>
+<p>很遺憾，這裡的答案大概是不一定…相信聰明的你一定有發現一件很矛盾的事情，我們日常生活中幾乎不會見到 <code>KiB</code> 、 <code>MiB</code> 這些單位，但似乎它們的定義又更合理一點，因為既然是電腦內的計量單位就應該要盡量符合電腦的設計才對吧？</p>
+<p>其實這兩者的混用是一直以來都存在的問題，對我來說這裡面有不少因素。先講好的例子好了，也是我少數誇獎Apple的時候了，只能說不愧是賈伯斯，（還是聲明一下，我真的不熟macOS，這邊是網路上找到的資料，有錯還請多多包涵），在2009年8月28日發布的<a href="https://zh.wikipedia.org/wiki/Mac_OS_X_Snow_Leopard">Mac OS X Snow Leopard</a>中，包含了一項更新，讓這之後在MacOS上的檔案大小皆是以十進制單位來表示的。</p>
+<p>十進制單位是國際電工委員會（IEC）推薦的定義，也算是公制單位的一種（例如公斤、公升、公尺，公制單位都以十進制定義，方便計算），所以基本上這應該是要全球統一的標準，但大家也知道我們現在還是經常使用一些奇奇怪怪的單位，但二進制字首的單位似乎又沒這麼奇怪…</p>
+<p>沒錯喔，因為電腦硬體實際上都是以二進制為基礎設計，所以像是記憶體大小，因為實體儲存位址的關係，最直觀的方式就是用二進制數量級來表示，也因此Windows到現在也還是使用二進制的單位來表示檔案的大小。</p>
+<p>也因此有另一個單位就出現了，雖然它比較不是被訂定出來的單位，卻也非常廣泛的在使用，那就是大寫K的 <code>KB</code> （只有K有區別，其他字首就是混用），等於是 <code>KiB</code> 的縮寫，如果你是用Windows系統的話現在可以打開檔案總管看看，應該會看到單位是 <code>KB</code> 的檔案。</p>
+<p>那實際上十進制跟二進制單位的不同會造成什麼影響呢？比方說我們買硬碟可能會看到一張這樣混亂的規格…</p>
+<img src="/2024/09/01/l1-2/1.png" class="">]]></content>
+      <categories>
+        <category>articles</category>
+      </categories>
+      <tags>
+        <tag>初學者系列</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>文組生的資訊素養：第一課　數位的世界</title>
     <url>/2024/08/31/l1-1/</url>
     <content><![CDATA[<p>最近有一本書滿有名的，劉潤的《底層邏輯》，雖然我還沒讀啦，但大致上應該是在講每件事都有一個最底層的邏輯，理解之後才能真正學會該怎麼做。他那本主要是在講商業跟人際方面，我就在想，好像其實沒有人在整理資訊的底層邏輯欸，主要是玩資訊的人都很宅嗎，大家都會有自己的辦法去找到東西來學，而且鑽研的很深。但是隔行如隔山嘛，前端的不懂後端在想什麼，硬體的不懂軟體在想什麼。最根本來說，大部分的文組就沒搞懂過資訊圈到底都在玩什麼，所以我就想來分享我知道的東西。剛好高中在社團教過，算是有點教人的基礎，所以應該還行吧，希望我能寫到大家都看懂。</p>
@@ -400,7 +725,7 @@
     </div>
 </div>
 
-<p>前面有提過位元這個詞，簡單來說其實這個小遊戲就代表8位元可以表示的所有數值，範圍是 <code>0 ~ 255</code> ，也就是 2<sup>8</sup> &#x3D; 256 個數。</p>
+<p>前面有提過位元這個詞，簡單來說其實這個小遊戲就代表8位元可以表示的所有數值（整數），範圍是 <code>0 ~ 255</code> ，也就是 2<sup>8</sup> &#x3D; 256 個數。</p>
 <blockquote>
 <p>n位元可以表示數值範圍為 2<sup>n</sup> 個數，其最大表示數值為 2<sup>n</sup> - 1 。</p>
 </blockquote>
@@ -662,145 +987,6 @@
       </categories>
       <tags>
         <tag>初學者系列</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo基本操作分享</title>
-    <url>/2024/08/29/hexobasic/</url>
-    <content><![CDATA[<blockquote>
-<p><a href="https://hackmd.io/@Heidi-Liu/note-hexo-github">參考文章</a></p>
-</blockquote>
-<p>看到Hexo一陣子了，我一直都想自己架個站，但都懶得動，這次實習完終於喚醒我長年睡著的Coding魂（其實也是終於有機會跟上新時代的工具了），剛好也有時間就來搞搞看，結果發現其實真的滿簡單的，也滿好用。</p>
-<h1 id="What-is-Hexo"><a href="#What-is-Hexo" class="headerlink" title="What is Hexo?"></a>What is Hexo?</h1><hr>
-<p>開玩笑的，我最不會解釋這種東西了，基本上就是個寫網誌的框架啦！</p>
-<blockquote>
-<p><a href="https://hexo.io/zh-tw/">官網連結</a></p>
-</blockquote>
-<p>其實官網就有完整（？）教學了，架起來真的很簡單，我第一次用遇到的問題比較都是不熟悉現代工具（node.js, git）造成的，每個人應該都有不太會打Terminal的時代吧…還是單純我笨QQ</p>
-<h1 id="環境建置"><a href="#環境建置" class="headerlink" title="環境建置"></a>環境建置</h1><hr>
-<p>反正官網其實開頭就告訴你需要什麼指令了</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-cli -g</span><br><span class="line">$ hexo init blog</span><br><span class="line">$ <span class="built_in">cd</span> blog</span><br><span class="line">$ npm install</span><br><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>好吧，既然我的初衷是要手把手教學，這裡就講仔細點，順便讓我練一下Markdown。</p>
-<p>首先最基礎的是，看到 <code>npm</code> 的時候就要有意識了，基本上這個時代寫程式最容易看到卻也最容易讓小白卡住的兩個詞就是 <code>npm</code> 或 <code>pip</code> 。簡單來說他們有點像兩種下載器， <code>npm</code> 是node.js預設的，<code>pip</code> 則是Python預設的，你的電腦要先裝好對應的環境，才可以在Terminal上使用這些指令。</p>
-<blockquote>
-<p><a href="https://nodejs.org/zh-tw">node.js官網</a></p>
-</blockquote>
-<p>因此這裡第一件要做的事就是把node裝好，裝好之後大概就會產生下一個疑問了：</p>
-<h3 id="我要在哪裏打剛剛的指令…"><a href="#我要在哪裏打剛剛的指令…" class="headerlink" title="我要在哪裏打剛剛的指令…"></a>我要在哪裏打剛剛的指令…</h3><p>剛剛有提過Terminal了，我一直覺得這東西的存在就是為了阻止程式小白開始寫程式，因為真的太基本了所以基本上沒什麼人會教…至於我為什麼一直覺得這是新世代的方法，主要是因為以前就是學一些上古時代的東西，包括但不限於C++, PHP, JAVA等語言，又因為都在學校學，真的是比較少碰現在這些框架，甚至是比較大的框架大部分不一定需要用這種Package的方式安裝（其實我直覺也舉不出例子，但還真就剛好沒人教過我怎麼用npm），於是後來我就一直對這個很困惑（說白了就是懶的接觸新東西啦）。</p>
-<p>最近又回來比較密集的碰這些東西才重新理解，那就來詳細說一下我理解的內容吧，簡單來說Terminal其實就是電腦上可以輸入指令的地方，以Windows來說比較常用的就是<strong>cmd（Command Line, 命令提示字元）</strong>，在開始輸入cmd就會直接跳出來；另外還有<strong>PowerShell</strong>，基本上把他當強化版的cmd就對了，功能比cmd完整，但整體使用上差不多。</p>
-<p>不過我自己現在最常用的是<a href="https://code.visualstudio.com/"><strong>VS Code（Visual Studio Code）</strong></a>內建的Terminal啦，高中有在寫程式的時候大家對VS Code的評價好像都不是很好，我記得那時候還很多人是用Sublime Text去裝C++插件來寫。但時代變了，現在整個生態系越來越完整，VS Code變好用很多（其實我好像一直都沒覺得它難用就是了），重點是我覺得變漂亮很多，畢竟寫Code整天只能盯著這個畫面，好看還是很重要的。</p>
-<p>回到重點，大部分的IDE（Integrated Development Environment, 整合開發環境）其實應該都有內建的Termanal，畢竟現在的框架很多都需要指令來配合使用，打一打還要切出去挺麻煩的，這時候內建的Terminal就很方便，加上VS Code本身就是微軟開發的，在Windows環境的支援性應該還是比較好（我也沒有比較過就是了）。</p>
-<p>至於用Mac的朋友我只能說聲抱歉，我真的沒有用過，這就要靠你們自己摸索了。</p>
-<p>另一個要安裝的環境則是<a href="https://git-scm.com/"><strong>git</strong></a>，雖然對於Hexo來說不是必要的，但是如果要發佈到Github Page或是安裝插件都會用到，所以如果電腦裡還沒有也可以先裝起來。</p>
-<p>再回到剛剛的指令，我們一行一行來看好了：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
-<p>首先又有一個大重點，我覺得這也是要阻止外行人學程式的陰謀…可以看到一開始有個 <code>$</code> 符號，基本上我相信99%的人第一次看到就會整行複製，然後Windows就會吐一句話給你：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="string">&#x27;$&#x27;</span> 不是內部或外部命令、可執行的程式或批次檔。</span><br></pre></td></tr></table></figure>
-<p>是的，其實很簡單的問題，那個 <code>$</code> 不是要你複製貼上的，以我目前的理解，它比較像是在告訴你這行是一個指令，可以打在Terminal上執行，不過實際上好像會因為作業系統而不同（這部分我是問ChatGPT，我也不確定，手邊有Linux系統的可以自己試試看），反正Linux&#x2F;Unix中輸入的話， <code>$</code> 應該是可打可不打，但Windows是直接不收，所以如果是純粹針對Windows的教學其實有些就會不加 <code>$</code> ，例如這樣：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
-<p>不過我還是必須說，我覺得指令滿多時候會因為每台電腦環境、版本的些微不同而出一些奇怪的Bug，所以遇到問題還是要多google，基本上能過最重要，不用因為自己的指令跟別人不同感到難過（？），我其實不太確定這是什麼問題就是了，但我印象中確實有遇過這樣的情況，很怪。</p>
-<p>那這個指令就是安裝啦，<code>install</code> 應該都看得懂吧，執行完就會在你所在的目錄安裝好Hexo啦，其實釐清這個邏輯以後就會發現這很方便，反正指令google就有，也不太需要記。</p>
-<p>那下一個指令就是Hexo自己的指令了，這邊做的是初始化Hexo，執行後會在所在的目錄建立一個資料夾：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo init &lt;folder name&gt;</span><br></pre></td></tr></table></figure>
-<p><code>&lt;folder name&gt;</code> 記得改成自己要的名稱，也可以先建好資料夾並在該資料夾輸入上面的指令，同樣可以完成初始化。</p>
-<p>下個指令很重要，很常用：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> &lt;folder name&gt;</span><br></pre></td></tr></table></figure>
-<p><code>cd</code> 是個很常用的指令，基本上就是 <code>change directory</code> 的意思，也就是把執行指令的目錄變更到目標目錄去，對，這裡補充一下，基本上執行指令的對象都是對某個目錄，所以以這邊的情境來說，就是我剛建立了一個新的資料夾，現在我要對這個資料夾做一些變更或執行一些東西，所以我要把執行的目錄變更為新的資料夾。上一步如果要先建立資料夾，就是建立好之後 <code>cd</code> 到新的資料夾裡面，所以其實兩個做法真的是差不多的意思啦。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>其實也可以打開資料夾之後在檔案總管的路徑那邊直接輸入cmd，跟 <code>cd</code> 指令是一樣的意思。</p>
-</blockquote>
-<p>這邊就是在新資料夾把需要的Package重新安裝一次，沒問題的話會看到這些檔案跟資料夾：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml</span><br><span class="line">├── package.json</span><br><span class="line">├── scaffolds</span><br><span class="line">├── <span class="built_in">source</span></span><br><span class="line">|   ├── _drafts</span><br><span class="line">|   └── _posts</span><br><span class="line">└── themes</span><br></pre></td></tr></table></figure>
-<p>基本上這邊就差不多了，輸入最後一個指令就可以在本地端發布靜態網頁，可以看到網頁的最初模樣：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>就可以點Terminal上的<a href="http://localhost:4000/">連結</a>來看到自己發布的網頁了。</p>
-<h1 id="基本設置"><a href="#基本設置" class="headerlink" title="基本設置"></a>基本設置</h1><hr>
-<p>如果你照著上面的步驟走完一遍，應該會發現我的網頁跟你的長不一樣吧！其實Hexo官網上提供了很多的<a href="https://hexo.io/themes/">主題（Themes）</a>，可以去挑自己喜歡的來用，我目前用的這個是<a href="https://github.com/zoeingwingkei/frame/tree/master">Frame</a>，其實算是歪打正著找到一個滿漂亮功能又滿多的，大家也可以自己探索，基本上官網都有Demo網頁（不過有些網域沒有維護被連結到其他地方去了，請大家瀏覽的時候自行注意安全），可以慢慢尋找自己最喜歡的主題，因為每個主題的設置會不太一樣，所以如果是用了一陣子之後才換可能會稍微有點麻煩，大家就自己研究看看囉！</p>
-<p>那這裡先從Hexo的基本設置開始說起，不過我不會講太仔細，網路上有很多教學講得很詳細，這部分我也還沒研究清楚就不班門弄斧了。</p>
-<p>這邊指的基本設置是在剛剛建立的新資料夾中，有一個 <code>_config.yml</code> 的檔案，可以用記事本打開或是直接拉到VS Code裡開啟，打開之後可以看到滿多設定可以更改，這裡講幾個比較基本的：</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Site</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">Roy&#x27;s</span> <span class="string">Blog</span></span><br><span class="line"><span class="attr">subtitle:</span> <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="attr">description:</span> <span class="string">&#x27;我的網路與程式開發筆記&#x27;</span></span><br><span class="line"><span class="attr">keywords:</span></span><br><span class="line"><span class="attr">author:</span> <span class="string">Roy</span></span><br><span class="line"><span class="attr">language:</span> <span class="string">zh</span></span><br><span class="line"><span class="attr">timezone:</span> <span class="string">&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
-<p>應該算容易理解，<code>title</code> 就是網站標題，也就是顯示在分頁上的字，<code>description</code> 則是對網頁的描述，通常是給搜尋引擎看的啦，以下這幾個差不多都是這個意思，看個人需要再編輯即可。</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Directory</span></span><br><span class="line"><span class="attr">source_dir:</span> <span class="string">source</span></span><br><span class="line"><span class="attr">public_dir:</span> <span class="string">public</span></span><br><span class="line"><span class="attr">tag_dir:</span> <span class="string">tag</span></span><br><span class="line"><span class="attr">archive_dir:</span> <span class="string">archives</span></span><br><span class="line"><span class="attr">category_dir:</span> <span class="string">categories</span></span><br><span class="line"><span class="attr">code_dir:</span> <span class="string">downloads/code</span></span><br><span class="line"><span class="attr">i18n_dir:</span> <span class="string">:lang</span></span><br><span class="line"><span class="attr">skip_render:</span></span><br></pre></td></tr></table></figure>
-<p>這邊比較重要，這邊是決定產生的靜態檔案會跑去哪，也會決定它們的相對路徑，所以如果有找不到頁面的情況，可能是其他地方的設定跟這裡不同造成的。</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Extensions</span></span><br><span class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></span><br><span class="line"><span class="attr">theme:</span> <span class="string">frame</span></span><br></pre></td></tr></table></figure>
-<p>這裡則是設置使用的主題，上面還很貼心的提供了官網連結，可以瀏覽所有的主題以及插件，之後 <code>git clone</code> 到對應的資料夾使用。</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/one-command-deployment</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">&lt;Your</span> <span class="string">Github</span> <span class="string">Page</span> <span class="string">Link&gt;</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
-<p>另外先提一下，如果有要發佈到Github Page上，需要在這裡先設定自己的Github Repository連結，才可以順利發佈上去，這個我之後會再詳細講一遍，我們先看看其他設定吧。</p>
-<hr>
-<p>接下來講講<strong>主題</strong>相關的設置吧，基本上每個主題的設置都會不太一樣，所以我講比較通用的概念為主，先講個先備知識，如果你不太了解相對路徑如何運作，請先去google複習一下，我就不贅述了。</p>
-<p>主題的設置會在 <code>themes</code> 資料夾裡，該主題的資料夾中會有另一個 <code>_config.yml</code> 檔案，一樣開啟它之後就會看到該主題對應的設置，基本上每個主題Github上的 <code>README.md</code> 會有自己的說明，都講得滿清楚的。</p>
-<p>先岔開一下好了，對於比較少用這種類型框架的人來說可能會遇到跟我一樣的問題，或著單純我傻QQ，在我以前的認知裡，尤其對於靜態網頁，我直覺就是找 <code>public</code> 資料夾，因為通常就是這樣叫的嘛，所以我就拿裡面的東西改改改，然後照著教學打指令之後就發現我改的東西不見了…</p>
-<p>其實仔細想想真的滿笨的。因為Hexo是靜態的網頁框架，所以每次更改之後都要重新產生靜態網頁，需要輸入以下兩個指令：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo cl</span><br><span class="line">$ hexo g</span><br></pre></td></tr></table></figure>
-<p>就是把原本的靜態網頁刪除，然後產生新的，就這麼簡單而已，但相對來說在 <code>public</code>裡面改的東西就會消失，<strong>所以不論改什麼，都不要在 <code>public</code> 資料夾底下改</strong>，除非你確定你再也不會用Hexo本身的功能生成靜態網頁，否則改任何圖示都要在 <code>/themes/source</code> 底下去改檔案，如果要改網頁的Layout則是要到 <code>themes/layout</code> 底下去改 <code>.ejs</code> 檔， <code>.ejs</code> 的具體操作我就不明白了，大家有興趣可以自行研究。然後再用 <code>$ hexo g</code> 根據 <code>themes</code> 裡面的檔案去生成靜態網頁，這時候才會用裡面的圖檔、文件去生成新的靜態網頁到 <code>public</code> 裡面。</p>
-<p>所以說這邊比較通用且好更改的東西就是網頁上顯示的圖示了，第一個是 <code>favicon.ico</code> ，可以在 <code>/themes/source</code> 裡面找到它，它就是我們平常在分頁標籤最左邊可以看到的那個圖示。想要自己動手做的話可以到<a href="https://favicon.io/"><strong>favicon.io</strong></a>，或是用<a href="https://www.figma.com/"><strong>figma</strong></a>輸出 <code>.png</code> 檔再轉成 <code>.ico</code> 檔，之後丟到 <code>/themes/source</code> 就可以了。</p>
-<p>網頁內的Icon也是用一樣的方式操作，我比較建議的方式也是用Figma輸出 <code>.png</code> 檔，Figma真的很推，簡單好用漂亮，但如果你有其他用得順手的工具當然也OK。</p>
-<p>另外再介紹一個好用的插件，<a href="https://github.com/next-theme/hexo-generator-searchdb"><strong>hexo-generator-searchdb</strong></a>是一款本地搜尋插件，我不確定它能不能跟其他主題完全相容，但Frame有<a href="https://zoeingwingkei.github.io/frame-demo-site/2022/08/05/local-search/">完整支援</a>，非常簡單就能設置完成，我覺得我還是滿需要搜尋功能的，不然寫多了都不記得自己寫過啥XD</p>
-<h1 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h1><hr>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new &lt;layout&gt; &lt;title&gt;</span><br></pre></td></tr></table></figure>
-<p>這邊就是建立新的頁面，Layout可選的有三種：</p>
-<table>
-<thead>
-<tr>
-<th align="left">Layout</th>
-<th align="left">path</th>
-<th align="left">defnition</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><code>post</code></td>
-<td align="left"><code>source/_post</code></td>
-<td align="left">文章</td>
-</tr>
-<tr>
-<td align="left"><code>page</code></td>
-<td align="left"><code>source</code></td>
-<td align="left">頁面</td>
-</tr>
-<tr>
-<td align="left"><code>draft</code></td>
-<td align="left"><code>source/_drafts</code></td>
-<td align="left">草稿</td>
-</tr>
-</tbody></table>
-<p>基本上 <code>post</code> 跟 <code>draft</code> 是差不多的東西，單純就是產生在不同的目錄底下而已； <code>page</code> 就比較不一樣，它是直接建立一個頁面，就有很多可以玩的了，我暫時還沒研究。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo clean</span><br></pre></td></tr></table></figure>
-<p>清除快取與已產生的靜態檔案，建議每次儲存修改完的檔案都可以先執行這個。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>就是生成靜態檔案，所以先用 <code>clean</code> 清除再重新生成一次，就這樣。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>這個剛剛有講過了，在本地端啟動Hexo server，就可以在自己電腦上預覽結果，要關掉的話回到Terminal點一下之後按 <code>Ctrl+C</code> 就可以了。</p>
-<h1 id="發佈到Github-Page"><a href="#發佈到Github-Page" class="headerlink" title="發佈到Github Page"></a>發佈到Github Page</h1><hr>
-<p>這邊…真的滿簡單的，所以我就不多寫了，可以參考其他人的文章，以下附上兩篇：</p>
-<blockquote>
-<p><a href="https://hackmd.io/@Heidi-Liu/note-hexo-github">Github Page</a></p>
-</blockquote>
-<blockquote>
-<p><a href="https://medium.com/i-caught-a-code/hexo-%E7%84%A1%E7%97%9B%E5%85%A5%E5%9D%91%E5%9B%89-1a119a6805e5">Gitlab + Netlify</a></p>
-</blockquote>
-<p>設定好之後就是在每次修改完依序執行：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo cl</span><br><span class="line">$ hexo g</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
-<p>這三行指令就是前面 <code>clean</code> 跟 <code>generate</code> 的縮寫，再加上一個 <code>deploy</code> 。</p>
-<p>基本上這樣就可以開始玩啦！底下再附上幾個連結給大家參考：</p>
-<p>Markdown語法相關：</p>
-<blockquote>
-<p><a href="https://kingofamani.gitbooks.io/git-teach/content/chapter_6_gitbook/markdown.html">MD語法教學</a></p>
-</blockquote>
-<blockquote>
-<p><a href="https://hexo.io/zh-tw/docs/tag-plugins">Hexo提供的Tag Plugins</a></p>
-</blockquote>
-<p>要注意的是Tag Plugins雖然用起來滿方便的，但在VS Code預覽時不會正常顯示，算是小麻煩的點。</p>
-<h1 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h1><hr>
-<p>其實我也才剛開始玩Hexo而已，這篇主要就是一些基本介紹，如果之後有玩出其他東西再來跟大家分享。Hexo真的算是滿簡單好用，滿推薦大家自己弄起來玩玩看的，而且因為是自己架的，相對來說在上面寫東西負擔也比較小，算是慢慢建立個人網站的起步好幫手。那如果有摸出新東西再來跟大家分享啦，之後幾篇應該會先寫原本預計寫的東西，過一陣子再回來研究Hexo，就這樣囉！</p>
-]]></content>
-      <categories>
-        <category>articles</category>
-      </categories>
-      <tags>
-        <tag>Web</tag>
-        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>

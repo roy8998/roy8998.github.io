@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Roy">
+
+
+
+    <meta name="description" content="我的網路與程式開發筆記">
+
+
+    <meta name="keywords" content="Roy, 梅洛凡">
+
+
+
+
+<title>文組生的資訊素養：第二課　關於電腦的那些事-1 | Roy&#39;s Blog</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&family=Roboto+Mono&display=swap');
+</style>
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/menu.js"></script>
+    
+
+
+
+
+
+
+
+
+
+
+  <meta name="generator" content="Hexo 7.3.0"></head>
+  <body>
+    <div class="mask-border">
+    </div>
+
+    <div class="wrapper">
+
+      <div class="header">
+  <div class="flex-container">
+    <div class="header-inner">
+      <div class="site-brand-container">
+        <a href="/">
+          
+            <img class="logo-img" src="/logo.png" alt="logo_image">
+          
+        </a>
+      </div>
+      <div id="menu-btn" class="menu-btn" onclick="toggleMenu()">
+        Menu
+      </div>
+      <nav class="site-nav">
+        <ul class="menu-list">
+          
+            
+              <li class="menu-item">
+                <a href="/">Home</a>
+              </li> 
+                   
+          
+            
+              <li class="menu-item">
+                <a href="/categories/articles/">Articles</a>
+              </li> 
+                   
+          
+            
+              <li class="menu-item">
+                <a href="/categories/gallery/">Photos</a>
+              </li> 
+                   
+          
+            
+              <li class="menu-item">
+                <a href="/tag/">tags</a>
+              </li> 
+                   
+          
+          
+            <li class="menu-item search-btn">
+              <a href="#">Search</a>
+            </li>
+          
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main">
+        <div class="flex-container">
+          <article id="post">
+
+  
+    <div class="post-head">
+    <div class="post-info">
+        <div class="tag-list">
+            
+                
+                    <span class="post-tag">
+                        <a href="/tag/%E5%88%9D%E5%AD%B8%E8%80%85%E7%B3%BB%E5%88%97/">
+                            初學者系列
+                        </a>
+                    </span>    
+                           
+            
+        </div>
+        <div class="post-title">
+            
+            
+                文組生的資訊素養：第二課　關於電腦的那些事-1
+            
+            
+        </div>
+        <span class="post-date">
+            Sep 1, 2024
+        </span>
+    </div>
+    <div class="post-img">
+        
+            <div class="h-line-primary"></div>
+              
+    </div>
+</div>
+    <div class="post-content">
+    <p>今天來講一些電腦硬體相關的事好了，可能算是我的簡易版計概，計概真的太大本了，又塞滿一堆古代內容，我就寫我覺得比較重要的部分就好。說是這麼說啦…我去翻了一下以前做的簡報，又發現我其實講很細…以前覺得重要的點又跟現在不太一樣，滿頭痛的。</p>
+<p>所以硬體相關的應該會有不只一篇，因為真的太多東西可以講了，那我盡量不要講太深，還是以一種引起興趣的方式來介紹給大家囉！</p>
+<h1 id="位元-Bit"><a href="#位元-Bit" class="headerlink" title="位元 Bit"></a>位元 Bit</h1><hr>
+<p>上次講完二進制不知道大家吸收的如何，有大概提到過位元（bit）就是二進制中的一位，但幾乎都不會只有一位嘛，只有一位的話就只能表示 <code>true</code> 跟 <code>false</code> ，但我們還會需要計算更多東西，所以用到更多位元的話，就會用到其他單位來計算。</p>
+<p>首先就是<strong>位元組（byte）</strong>，8個 <code>bit</code> 就是1個 <code>byte</code>。從這邊開始就可以慢慢開始熟悉更多跟二進制有關的概念了，因為電腦本身用的方式就是二進制嘛，所以各式各樣的單位，其實都會用2的n次方來定義。</p>
+<p>那以歷史意義來說，8位元除了長得工整，可以用兩位十六進制表示以外，最主要會用8位元當作一個基本單位其實是因為早期電腦系統都是以英文（更準確來說就是拉丁字母）為主，所使用的編碼集是<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-tw/ASCII"><code>ASCII</code></a>（讀作&#x2F;ˈæski&#x2F; ，啊嘶ㄎㄧˋ），總共有128個字元，其實是7位元，但7位元實在是不太漂亮，所以索性就用8位元當作一個位元組，多出來的一個位元可以用來做一些其他的功能。</p>
+<p>位元組是基本單位，那更大的單位如何表示呢？這裡開始會出現大家熟悉的名詞了，或著說應該至少看過前三個…？</p>
+<div>
+    <table style="text-align: left; margin-left:1em; font-size:88%; border-radius:5%;">
+        <style>
+            th, td {
+            border-bottom: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+            border-left: 1px solid #ddd;
+            }
+            .bytecontent td,tr{
+                background-color :#ABC1CD;
+            }
+        </style>
+    <tbody>
+        <table style="border:0px #aaa solid">
+            <tbody>
+                <tr>
+                    <th colspan="3" style="background-color:#6E98A6; text-align:center;">
+                        <p style="color: #E9F2F2;">十進位字首（公制）</p>
+                    </th>
+                </tr>
+                <tr>
+                    <th colspan="1" style="background-color:#C8D8Df; text-align:left; padding:10px; color:#002a56;">數量級
+                    </th>
+                    <th colspan="1" style="background-color:#C8D8Df; text-align:left; padding:10;color:#002a56;">縮寫
+                    </th>
+                    <th colspan="1" style="background-color:#C8D8Df; text-align:left; padding:10;color:#002a56;">
+                        名稱
+                    </th>
+                </tr>
+                <div class="bytecontent">
+                    <tr>
+                        <td>1000
+                        </td>
+                        <td><code>kB</code></td>
+                        <td>kilobyte
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>1000<sup>2</sup>
+                        </td>
+                        <td><code>MB</code></td>
+                        <td>megabyte
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>1000<sup>3</sup>
+                        </td>
+                        <td><code>GB</code></td>
+                        <td>gigabyte
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>1000<sup>4</sup>
+                        </td>
+                        <td><code>TB</code></td>
+                        <td>terabyte
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>1000<sup>5</sup>
+                        </td>
+                        <td><code>PB</code></td>
+                        <td>petabyte
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>1000<sup>6</sup>
+                        </td>
+                        <td><code>EB</code></td>
+                        <td>exabyte
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>1000<sup>7</sup>
+                        </td>
+                        <td><code>ZB</code></td>
+                        <td>zettabyte
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>1000<sup>8</sup>
+                        </td>
+                        <td><code>YB</code></td>
+                        <td>yottabyte
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>1000<sup>9</sup>
+                        </td>
+                        <td><code>RB</code></td>
+                        <td>ronnabyte
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>1000<sup>10</sup>
+                        </td>
+                        <td><code>QB</code></td>
+                        <td>quettabyte
+                        </td>
+                    </tr>
+                </div>
+            </tbody>
+        </table>
+    </tbody>
+</table>
+</div>
+
+<p>以上，基本上不用記得啦…</p>
+<p>日常生活中會用到的就前四個， <code>kB</code> 、 <code>MB</code> 、 <code>GB</code> 跟 <code>TB</code> 而已，最多最多可能看到 <code>PB</code> 吧，某些新聞或技術文章會出現。其餘應該暫時還用不到，就像課本裡那些<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E4%BA%AC_(%E6%95%B8%E5%AD%97%E5%96%AE%E4%BD%8D)">京</a>、<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%81%86%E6%B2%B3%E6%B2%99">恆河沙</a>、<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-tw/%E4%B8%8D%E5%8F%AF%E6%80%9D%E8%AD%B0">不可思議</a>之類的單位，就算真的有這麼大的數通常也是直接用數量級表示了，不太會用單位。</p>
+<p>所以也就是說其實很簡單啦，這邊用到的這些單位其實就是各差1000（10<sup>3</sup>）倍而已，但是只有這一種十進制的單位嗎？其實也不只…以kB為例，跟他長得很像的有這些：</p>
+<div>
+    <table style="text-align: left; margin-left:1em; font-size:88%; border-radius:5%;">
+        <tbody>
+            <table style="border-style: hidden;">
+                <style>
+                    th, td {
+                    border-bottom: 1px solid #ddd;
+                    border-right: 1px solid #E9F2F2;
+                    border-left: 1px solid #E9F2F2;
+                    }
+                    .bytecontent td,tr{
+                        background-color :#ABC1CD;
+                    }
+                </style>
+                <tbody>
+                    <tr>
+                        <th colspan="2" style="background-color:#C8D8Df; text-align:left; padding:10px; color:#002a56;">十進制
+                        </th>
+                        <th colspan="2" style="background-color:#C8D8Df; text-align:left; padding:10px;color:#002a56;">二進制
+                        </th>
+                    </tr>
+                    <div class="bytecontent">
+                        <tr>
+                            <td><code>kB</code></td>
+                            <td><code>kbit(kb)</code></td>
+                            <td><code>KiB</code></td>
+                            <td><code>Kibit(Kib)</code></td>
+                        </tr>                    
+                        <tr>
+                            <td>kilobyte</td>
+                            <td>kilobit</td>
+                            <td>kibibyte</td>
+                            <td>kibibit</td>
+                        </tr>                    
+                        <tr>
+                            <td>10<sup>3</sup> bytes</td>
+                            <td>10<sup>3</sup> bits</td>
+                            <td>2<sup>10</sup> byte</td>
+                            <td>2<sup>10</sup> bits</td>
+                        </tr>
+                    </div>
+                </tbody>
+            </table>
+        </tbody>
+    </table>
+</div>
+
+<p>情況一瞬間變得非常糟糕，好多奇怪的單位出現了。不要緊張，我們從看過的東西一個一個來。</p>
+<p>先以十進制這邊來說，可以發現除了前面講過的大寫 <code>B</code> 以外，出現了另一種小寫 <code>bit</code> 或 <code>b</code> ，沒錯！小寫 <code>b</code> 的版本就是位元的數量級單位，翻成中文的話 <code>kB</code> 就是千位元組， <code>kbit</code> 或 <code>kb</code> 就是千位元。所以這兩個其實還算好理解吧！</p>
+<p>二進制這邊就是另一個概念了，每個數量級都會相差2<sup>10</sup>倍，也就是1024倍。老樣子，是因為電腦實際上的設計方式都是以2的倍數為基礎，例如匯流排寬度、儲存單位的大小等等，都會是以2的倍數來設計。所以才會有二進制的數量級單位，否則用十進制表示的話數字會變很醜，也不方便。</p>
+<p><strong>那問題來了，請問我們平常用的到底是什麼制的單位呢？</strong></p>
+<p>很遺憾，這裡的答案大概是不一定…相信聰明的你一定有發現一件很矛盾的事情，我們日常生活中幾乎不會見到 <code>KiB</code> 、 <code>MiB</code> 這些單位，但似乎它們的定義又更合理一點，因為既然是電腦內的計量單位就應該要盡量符合電腦的設計才對吧？</p>
+<p>其實這兩者的混用是一直以來都存在的問題，對我來說這裡面有不少因素。先講好的例子好了，也是我少數誇獎Apple的時候了，只能說不愧是賈伯斯，（還是聲明一下，我真的不熟macOS，這邊是網路上找到的資料，有錯還請多多包涵），在2009年8月28日發布的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Mac_OS_X_Snow_Leopard">Mac OS X Snow Leopard</a>中，包含了一項更新，讓這之後在MacOS上的檔案大小皆是以十進制單位來表示的。</p>
+<p>十進制單位是國際電工委員會（IEC）推薦的定義，也算是公制單位的一種（例如公斤、公升、公尺，公制單位都以十進制定義，方便計算），所以基本上這應該是要全球統一的標準，但大家也知道我們現在還是經常使用一些奇奇怪怪的單位，但二進制字首的單位似乎又沒這麼奇怪…</p>
+<p>沒錯喔，因為電腦硬體實際上都是以二進制為基礎設計，所以像是記憶體大小，因為實體儲存位址的關係，最直觀的方式就是用二進制數量級來表示，也因此Windows到現在也還是使用二進制的單位來表示檔案的大小。</p>
+<p>也因此有另一個單位就出現了，雖然它比較不是被訂定出來的單位，卻也非常廣泛的在使用，那就是大寫K的 <code>KB</code> （只有K有區別，其他字首就是混用），等於是 <code>KiB</code> 的縮寫，如果你是用Windows系統的話現在可以打開檔案總管看看，應該會看到單位是 <code>KB</code> 的檔案。</p>
+<p>那實際上十進制跟二進制單位的不同會造成什麼影響呢？比方說我們買硬碟可能會看到一張這樣混亂的規格…</p>
+<img src="/2024/09/01/l1-2/1.png" class="">
+</div> 
+
+<script>
+    window.onload = detectors();
+</script>
+    <div class="post-footer">
+    <div class="h-line-primary"></div>
+    <nav class="post-nav">
+        <div class="prev-item">
+           
+        </div>
+        <div class="next-item">
+            
+                <div class="icon arrow-right"></div>
+                <div class="post-link">
+                  <a href="/2024/08/31/l1-1/">Next</a>  
+                </div>  
+            
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="post-comment">
+
+     
+
+     
+    
+    
+
+</div>
+     
+  
+</article>
+        </div>
+      </div>
+      
+      <div class="footer">
+    <div class="flex-container">
+        <div class="footer-text">
+            
+            
+                Roy May | 
+            
+            
+                Powered by <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> & <a target="_blank" rel="noopener" href="https://github.com/zoeingwingkei/frame/">Frame</a>
+                
+        </div>
+    </div>
+</div>
+
+    </div>
+
+    
+      <div class="search-popup">
+    <div class="search-popup-overlay">  
+    </div>
+    <div class="search-popup-window" >
+        <div class="search-header">
+            <div class="search-input-container">
+              <input autocomplete="off" autocapitalize="off" maxlength="80"
+                     placeholder="Search anything." spellcheck="false"
+                     type="search" class="search-input">
+            </div>
+            <div class="search-close-btn">
+                <div class="icon close-btn"></div>
+            </div>
+        </div>
+        <div class="search-result-container">
+        </div>
+    </div>
+</div>
+
+<script>
+    const searchConfig = {
+        path             : "/search.xml",
+        top_n_per_article: "1",
+        unescape         : "false",
+        trigger: "auto",
+        preload: "false"
+    }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js"></script>
+<script src="/js/search.js"></script>
+    
+    
+
+  </body>
+</html>
